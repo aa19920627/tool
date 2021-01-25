@@ -1,0 +1,5 @@
+说明：
+1、监测站需要在管控和原子服务中手动添加
+2、监测站idlist,监测站namelist，设备能力list以逗号隔开
+3、设备能力list为空时，默认能力为B_QueryDeviceInfo,B_QueryFaciDevStat,B_SglFreqMeas,B_FScan,B_PScan,B_StopMeas,B_SglFreqDF,B_SelfTest,B_TaskModification
+4、test/Devices.xml，test/Tasks.xml需要手动替换到绿server中D:\DeviceManagerHN\Server\Config
