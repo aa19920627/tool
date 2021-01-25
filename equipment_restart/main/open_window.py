@@ -10,12 +10,12 @@ import time
 
 from PyQt5.QtWidgets import QMainWindow, QApplication
 
-from common.component import Component_method
-from common.read_config import Read_config, Basis_config
-from common.write_log import Write_Log
-from main.monitor_method import Monitor_Method
-from main.restart_equipment import Restart_equipment
-from ui.mode import Ui_MainWindow
+from equipment_restart.common.component import Component_method
+from equipment_restart.common.read_config import Read_config, Basis_config
+from equipment_restart.common.write_log import Write_Log
+from equipment_restart.main.monitor_method import Monitor_Method
+from equipment_restart.main.restart_equipment import Restart_equipment
+from equipment_restart.ui.mode import Ui_MainWindow
 
 '''
 构建监控窗口，构建信号槽方法
