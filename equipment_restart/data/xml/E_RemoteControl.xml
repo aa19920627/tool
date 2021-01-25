@@ -26,13 +26,13 @@
    <soapenv:Body>
       <srrc:requestbody>
          <!--Optional:-->
-         <srrc:appid>tmp</srrc:appid>
+         <srrc:appid>1</srrc:appid>
          <!--Optional:-->
-         <srrc:userid>tmp</srrc:userid>
+         <srrc:userid>1</srrc:userid>
          <!--Optional:-->
-         <srrc:priority>1</srrc:priority>
+         <srrc:priority>0</srrc:priority>
          <!--Optional:-->
-         <srrc:executetime>10</srrc:executetime>
+         <srrc:executetime>0</srrc:executetime>
          <!--Optional:-->
          <srrc:mfid>%s</srrc:mfid>
          <!--Optional:-->
@@ -42,19 +42,14 @@
             <!--Optional:-->
             <srrc:items>
                <!--Zero or more repetitions:-->
-
+               <srrc:item>
+                  <!--Optional:-->
+                  <srrc:paraname>equipmentswitch</srrc:paraname>
+                  <!--Optional:-->
+                  <srrc:paravalue>%s</srrc:paravalue>
+               </srrc:item>
             </srrc:items>
          </srrc:equpara>
-         <!--Optional:-->
-         <srrc:outputchannel>
-            <!--Optional:-->
-            <srrc:mode>sink</srrc:mode>
-            <!--Optional:-->
-            <srrc:datachannel>stream</srrc:datachannel>
-            <srrc:host>%s</srrc:host>>
-            <srrc:port>%s</srrc:port>>
-            <srrc:stc>666</srrc:stc>
-         </srrc:outputchannel>
       </srrc:requestbody>
    </soapenv:Body>
 </soapenv:Envelope>

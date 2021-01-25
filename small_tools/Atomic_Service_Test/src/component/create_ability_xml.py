@@ -4,6 +4,7 @@
 @Date    : 2020/12/18 15:08
 @Author  : 洪建
 """
+import collections
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 
@@ -63,6 +64,8 @@ if __name__ == '__main__':
 
     # print(deviceinfo_et.iter("srrc:code"))
 
+
+    #deviceinfo返回报文转换字典
     dict_xml = xmltodict.parse(rec_value)
 
     feature_dict = dict_xml['soapenv:Envelope']['soapenv:Body']['srrc:responsebody']['srrc:result']['srrc:featurelist']['srrc:feature']
@@ -73,6 +76,17 @@ if __name__ == '__main__':
 
             for j in i['srrc:input']['srrc:parameter'] :
 
+
+
                 print(j['srrc:name'] + ':' + j['srrc:defaultvalue'])
 
-    # print(type(feature_dict))
+
+
+    # bility_1 = collections.OrderedDict()
+    # bility_1['srrc:paraname'] = 'test'
+    # bility_1['srrc:paravalue'] = 'test'
+
+
+
+    # item_list.append({('srrc:paraname','')})
+

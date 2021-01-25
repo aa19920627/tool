@@ -4,10 +4,12 @@
 @Date    : 2020/11/2 10:15
 @Author  : 洪建
 """
+import collections
 import os
 from xml.etree import ElementTree
 
 import xlrd
+import xmltodict
 
 '''
 数据处理
@@ -100,7 +102,37 @@ class Data_Processing:
 
         return element
 
+    def assembly_parameters(self,soapaction,operation_list):
+
+        '''
+        组装设备操作服务的参数
+        :return: 组装后的报文
+        '''
+
+        equipment_operation_xml = Data_Processing().read_xml(soapaction)    #读取设备操作服务的xml报文
+
+        equipment_operation_dict = xmltodict.parse(equipment_operation_xml)      #转换成OrderDict格式
+
+        item_list = operation_list
+
+        equipment_operation_dict['soapenv:Envelope']['soapenv:Body']['srrc:requestbody']['srrc:equpara']['srrc:items'][
+            'srrc:item'] = item_list    #操作服务的能力参数列表替换
+
+        xequipment_operation_xml_recv = xmltodict.unparse(equipment_operation_dict)
+
+        return xequipment_operation_xml_recv
+
+
+
+
+
+
+
 if __name__ == '__main__':
 
     # print(type(Data_Processing().read_xml("B_SglFreqMeas")))
-    print(Data_Processing().read_excel_data("test.xlsx")[0])
+    # print(Data_Processing().read_excel_data("test.xlsx")[0])
+
+
+
+    print(Data_Processing().assembly_parameters('B_SglFreqMeas',))

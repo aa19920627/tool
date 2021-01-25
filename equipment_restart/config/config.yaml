@@ -1,0 +1,4 @@
+Config:
+
+  interval: 30    #监控间隔，单位：分钟
+  restart_time: 5 #重启等待时间，单位：分钟
