@@ -6,6 +6,7 @@
 """
 import sys
 
+
 from PyQt5.QtWidgets import QApplication
 
 from equipment_restart.main.open_window import Monitor_Window
