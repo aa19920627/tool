@@ -33,6 +33,6 @@ class Monitor_Method:
         return result.returncode    #return放回代码，0代表连通，1代表不通
 
 
-if __name__ == '__main__':
-
-    print(Monitor_Method().ping_equipment("192.168.11.128"))
+# if __name__ == '__main__':
+#
+#     print(Monitor_Method().ping_equipment("192.168.11.128"))

@@ -62,5 +62,5 @@ class Basis_config:
 
         return str(self.data["Basis"]["equid"])
 
-if __name__ == '__main__':
-    print(type(Basis_config().basis_mfid()))
+# if __name__ == '__main__':
+#     print(type(Basis_config().basis_mfid()))

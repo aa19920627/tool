@@ -4,10 +4,12 @@
 @Date    : 2021/1/25 10:26
 @Author  : 洪建
 """
+import os
 import sys
 import threading
 import time
 
+from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication
 
 from equipment_restart.common.component import Component_method
@@ -39,6 +41,10 @@ class Monitor_Window(Ui_MainWindow, QMainWindow):
         #建立信号槽
         self.pushButton.clicked.connect(self.start_monitor)
         self.pushButton_2.clicked.connect(self.load_config)
+
+        #窗口存活性监测变量
+        self.window_alive = True
+
 
 
     def start_monitor(self):
@@ -79,7 +85,7 @@ class Monitor_Window(Ui_MainWindow, QMainWindow):
 
 
         #随按钮的状态来开启和停用定时器
-        if self.pushButton_value == "停止":
+        if self.pushButton_value == "停止" and self.window_alive == True:
 
             self.t_ping = threading.Timer(self.interval ,self.start_monitor_equipment)   #self.interval监控间隔
             self.t_ping.start()
@@ -104,6 +110,7 @@ class Monitor_Window(Ui_MainWindow, QMainWindow):
 
             #设置设备状态为故障
             self.label_7.setText("故障")
+            time.sleep(1)
             self.label_7.setStyleSheet("color:red")
 
             #调用重启方法
@@ -139,13 +146,30 @@ class Monitor_Window(Ui_MainWindow, QMainWindow):
         self.lineEdit_2.setText(Basis_config().basis_mfid())
         self.lineEdit_3.setText(Basis_config().basis_equid())
 
+    def closeEvent(self, event):    #方法名不可变
+
+        '''
+        定义退出确认框
+        '''
+
+        reply = QtWidgets.QMessageBox.question(self,u"警告" ,u"确认退出？", QtWidgets.QMessageBox.Yes,
+                                               QtWidgets.QMessageBox.No)
+        #QtWidgets.QMessageBox.question(self,u"弹窗名", u"弹窗内容", 选项1, 选项2)
+
+        if reply == QtWidgets.QMessageBox.Yes:
+
+            self.window_alive == False
+            event.accept()   #关闭窗口，√
+            os._exit(5)
+
+        else:
+            event.ignore()   #忽视关闭，X
 
 
 
-
-if __name__ == '__main__':
-
-    app = QApplication(sys.argv)
-    window = Monitor_Window()
-    window.show()
-    sys.exit(app.exec_())
+# if __name__ == '__main__':
+#
+#     app = QApplication(sys.argv)
+#     window = Monitor_Window()
+#     window.show()
+#     sys.exit(app.exec_())

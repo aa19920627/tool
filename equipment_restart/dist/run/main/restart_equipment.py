@@ -8,6 +8,7 @@ import time
 
 import requests
 
+from equipment_restart.common.component import Component_method
 from equipment_restart.common.read_xml import Read_Xml
 from equipment_restart.common.write_log import Write_Log
 
@@ -34,11 +35,13 @@ class Restart_equipment:
         headers = {"SoapAction":"E_RemoteControl", "Content-Type":"text/xml;charset=UTF-8"}
 
         try:
-            res = self.session.post(url=url, json=data, headers=headers,timeout=5)
+            res = self.session.post(url=url, data=data, headers=headers,timeout=5)
 
-        except requests.exceptions.Timeout:
+            print(res.text)
 
-            Write_Log().write_log("%调用设备开关服务超时" % Component_method().get_log_time())
+        except :
+
+            Write_Log().write_log("%s调用设备开关服务超时" % Component_method().get_log_time())
 
     def restart_equipment(self):
 

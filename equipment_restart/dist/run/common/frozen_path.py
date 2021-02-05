@@ -28,7 +28,7 @@ class Frozen_Path:
 
         return os.path.dirname(os.path.dirname(__file__))   #使用打包前的目录，用于本地运行
 
-
-if __name__ == '__main__':
-
-    print(Frozen_Path().app_path())
+#
+# if __name__ == '__main__':
+#
+#     print(Frozen_Path().app_path())

@@ -17,7 +17,7 @@ class Read_Xml:
 
     def __init__(self):
 
-        self.xml_dir = self.path = Frozen_Path().app_path() + "/data/xml"
+        self.xml_dir = Frozen_Path().app_path() + "/data/xml/"
 
     def read_xml(self, xml_name):
 
@@ -30,9 +30,9 @@ class Read_Xml:
 
 
 
-
-if __name__ == '__main__':
-
-    # print(Read_Xml().read_xml("E_RemoteControl"))
-
-    print(Read_Xml().path + "/data/xml")
+#
+# if __name__ == '__main__':
+#
+#     # print(Read_Xml().read_xml("E_RemoteControl"))
+#
+#     print(Read_Xml().path + "/data/xml")
