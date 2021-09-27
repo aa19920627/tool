@@ -10,8 +10,6 @@ import time
 import uuid
 
 import pytz
-from dateutil.relativedelta import relativedelta
-
 from common.basic_data import Basic_data
 
 
@@ -282,9 +280,9 @@ class Faker_Data:
 
         utc_format = "%Y-%m-%dT%H:%M:%SZ"              #定义format
 
-        time_str = (datetime.datetime.now() + relativedelta(days= random_int)).strftime(utc_format)
+        # time_str = (datetime.datetime.now() + relativedelta(days= random_int)).strftime(utc_format)
 
-        return time_str                #返回世界时间格式
+        # return time_str                #返回世界时间格式
 
 
 

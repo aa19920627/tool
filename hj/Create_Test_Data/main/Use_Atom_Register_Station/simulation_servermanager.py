@@ -108,5 +108,5 @@ class Write_Data_Tasks:
 if __name__ == '__main__':
 
 
-    # Simulation_Servermanager().writer_Devices()
-    Write_Data_Tasks().write_Tasks()
+    Simulation_Servermanager().writer_Devices()
+    # Write_Data_Tasks().write_Tasks()

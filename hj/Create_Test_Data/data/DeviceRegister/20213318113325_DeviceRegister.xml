@@ -7,7 +7,7 @@
 		<Latitude>40.802</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30015</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>43228e7d-0282-4c80-854e-63561812b47e</DeviceId>
@@ -22,7 +22,7 @@
 		<Latitude>39.429</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30016</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>a339bb9e-3a40-4c4d-ba22-e810e405aaa8</DeviceId>
@@ -37,7 +37,7 @@
 		<Latitude>41.732</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30017</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>20673e4d-eab7-429d-a862-82bafac2edf6</DeviceId>
@@ -52,7 +52,7 @@
 		<Latitude>43.126</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30018</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>17bf2d37-da53-43a8-a782-93b771be2faa</DeviceId>
@@ -67,7 +67,7 @@
 		<Latitude>43.726</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30019</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>3075ae8a-eb32-456c-96fb-4397d5e38c74</DeviceId>
@@ -82,7 +82,7 @@
 		<Latitude>41.625</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30020</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>34538bd9-c107-4b99-8199-1d1bd26362c2</DeviceId>
@@ -97,7 +97,7 @@
 		<Latitude>41.034</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30021</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>8f5c1521-0348-4158-8722-beda2fcbcff4</DeviceId>
@@ -112,7 +112,7 @@
 		<Latitude>39.717</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30022</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>7bc69264-82f8-4739-aaa8-1d0d7d08afce</DeviceId>
@@ -127,7 +127,7 @@
 		<Latitude>43.528</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30023</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>01a7db3c-4c8b-4469-a2e4-02971133c0e6</DeviceId>
@@ -142,7 +142,7 @@
 		<Latitude>41.114</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30024</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>c6c20cca-5b71-4142-88af-fc98e198f311</DeviceId>
@@ -157,7 +157,7 @@
 		<Latitude>40.631</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30025</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>c71c2372-8710-401c-ba7b-e70c202f7efa</DeviceId>
@@ -172,7 +172,7 @@
 		<Latitude>43.286</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30026</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>3230db05-ae64-4705-88da-537d9a97dd54</DeviceId>
@@ -187,7 +187,7 @@
 		<Latitude>43.935</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30027</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>edb52370-2a81-48a9-b287-6ca6c8923829</DeviceId>
@@ -202,7 +202,7 @@
 		<Latitude>42.970</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30028</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>2525e07c-2092-4201-9660-f063d52c20c4</DeviceId>
@@ -217,7 +217,7 @@
 		<Latitude>46.795</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30029</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>f0a6197c-17e1-4e6a-a3cd-8143b07524c0</DeviceId>
@@ -232,7 +232,7 @@
 		<Latitude>40.984</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30030</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>6805c209-976e-409f-911f-026258dc4854</DeviceId>
@@ -247,7 +247,7 @@
 		<Latitude>43.314</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30031</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>3ff34a87-b796-49dd-be12-89b2e8c3f1c4</DeviceId>
@@ -262,7 +262,7 @@
 		<Latitude>40.021</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30032</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>b2c5e327-ee5a-4827-8e17-8cb70a8e3a7e</DeviceId>
@@ -277,7 +277,7 @@
 		<Latitude>50.895</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30033</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>721df6f7-cc90-4487-8c2b-f56d97b02723</DeviceId>
@@ -292,7 +292,7 @@
 		<Latitude>46.792</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30034</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>d4a83010-5889-494a-aae2-f19bd65c609f</DeviceId>
@@ -307,7 +307,7 @@
 		<Latitude>41.631</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30035</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>97707f0e-334f-4dcc-9e74-a87a30041459</DeviceId>
@@ -322,7 +322,7 @@
 		<Latitude>39.337</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30036</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>6cf8b585-540b-4ebc-b537-c2363104603b</DeviceId>
@@ -337,7 +337,7 @@
 		<Latitude>39.495</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30037</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>f60cd979-eb5a-4dc4-9749-b155156dfc83</DeviceId>
@@ -352,7 +352,7 @@
 		<Latitude>50.653</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30038</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>d30bb0c6-a224-4689-ad71-44ff0dcb18c2</DeviceId>
@@ -367,7 +367,7 @@
 		<Latitude>44.067</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30039</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>b8faa405-c781-4063-81b7-36a449543ffb</DeviceId>
@@ -382,7 +382,7 @@
 		<Latitude>41.322</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30040</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>3002a418-e170-4d1d-a079-1ee80c94823f</DeviceId>
@@ -397,7 +397,7 @@
 		<Latitude>39.438</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30041</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>dd8f0416-e15c-45a2-bce4-f7b7fdd07c92</DeviceId>
@@ -412,7 +412,7 @@
 		<Latitude>43.358</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30042</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>8ba1ad95-6485-4837-a9f7-48fe942e450f</DeviceId>
@@ -427,7 +427,7 @@
 		<Latitude>42.069</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30043</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>4e8acbf3-de16-45a6-9450-490917c2445d</DeviceId>
@@ -442,7 +442,7 @@
 		<Latitude>40.069</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30044</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>9f88a6d8-5a59-40c2-8704-9b62f3d036b2</DeviceId>
@@ -457,7 +457,7 @@
 		<Latitude>46.824</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30045</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>a4ee5ce3-8751-43f2-aab9-b4fa82034180</DeviceId>
@@ -472,7 +472,7 @@
 		<Latitude>41.784</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30046</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>86ca8de8-76c1-49e6-a78c-349a44305ed5</DeviceId>
@@ -487,7 +487,7 @@
 		<Latitude>49.399</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30047</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>86174847-8fac-4775-973f-5cdb37c89523</DeviceId>
@@ -502,7 +502,7 @@
 		<Latitude>40.557</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30048</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>73f3d5aa-3eac-4989-beb7-07e8d63abecb</DeviceId>
@@ -517,7 +517,7 @@
 		<Latitude>43.067</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30049</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>176e53d0-b604-48e2-8ac5-c7a72c455a8f</DeviceId>
@@ -532,7 +532,7 @@
 		<Latitude>39.417</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30050</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>0c4ded85-30f5-4b98-804a-5228a9e0bdd2</DeviceId>
@@ -547,7 +547,7 @@
 		<Latitude>43.910</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30051</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>d47d1e43-c398-436c-97ca-2cfee9cc9661</DeviceId>
@@ -562,7 +562,7 @@
 		<Latitude>41.326</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30052</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>7c0f2ddb-154f-4208-8e16-5b95d6b58bca</DeviceId>
@@ -577,7 +577,7 @@
 		<Latitude>50.034</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30053</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>d8232b03-91c0-4abf-ab40-e00d263c57f4</DeviceId>
@@ -592,7 +592,7 @@
 		<Latitude>50.529</Latitude>
 		<DeviceIp>127.0.0.1</DeviceIp>
 		<DevicePort>20010</DevicePort>
-		<TcpServerIp>127.0.0.1</TcpServerIp>
+		<TcpServerIp>192.168.11.130</TcpServerIp>
 		<TcpServerPort>30054</TcpServerPort>
 		<DeviceItems>
 			<DeviceId>f85601e1-54ee-43c0-9df4-f94e34e22650</DeviceId>

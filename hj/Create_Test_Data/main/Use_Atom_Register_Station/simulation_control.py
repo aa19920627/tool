@@ -4,14 +4,15 @@
 @Date    : 2021/8/18 15:40
 @Author  : 洪建
 """
+import xml.dom
 from xml.dom import minidom
-
-import requests
 
 from common.faker_data import Faker_Data
 from common.get_token import Get_Token
+import requests
 
 #因为管控没有提供注册监测站的M接口，原子服务批量在管控中注册设备时，需要先在管控注册对应的监测站
+
 
 
 
@@ -81,25 +82,34 @@ class Simulation_Control:
             print("监测站创建失败" )
             print(res.json())
 
-    #读取xml文件中的监测设备信息
-    def read_xml(self,filename):
+    #读取生成的xml文件中的监测站信息
+    def read_xml(self,filename,url):
 
         dom = minidom.parse('../../data/DeviceRegister/%s'%filename)
 
-        root = dom.documentElement
+        names = dom.getElementsByTagName('Mfids')
 
-        names = root.geElementsByTagName('Mfids')
-
+        # print(names)
         for name in names:
 
-            mfid_node =
+            mfid = name.getElementsByTagName('Mfid')[0].firstChild.nodeValue
+            mfname = name.getElementsByTagName('MfidName')[0].firstChild.nodeValue
+            longitude = name.getElementsByTagName('Longitude')[0].firstChild.nodeValue
+            latitude = name.getElementsByTagName('Latitude')[0].firstChild.nodeValue
+            # print(mfid,mfname,longitude,latitude)
+
+            self.register_facility(mfid,mfname,longitude,latitude,url)
+
 
 
 if __name__ == '__main__':
 
-    mfid = '15020001142143'
-    mftype = mfid[8]
-    fmskind = mfid[9]
-    subMfid = mfid[-4:]
-    areacode = mfid[0:6]
-    print(mftype,fmskind,subMfid,areacode)
+    # mfid = '15020001142143'
+    # mftype = mfid[8]
+    # fmskind = mfid[9]
+    # subMfid = mfid[-4:]
+    # areacode = mfid[0:6]
+    # print(mftype,fmskind,subMfid,areacode)
+
+    sc = Simulation_Control()
+    sc.read_xml('20213318113330_DeviceRegister.xml','http://192.168.11.115:54000/facility/add')
