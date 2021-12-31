@@ -20,7 +20,7 @@ class Simulation_Servermanager:
         domTree = minidom.getDOMImplementation().createDocument(None, 'Devices', None)
         rootNode = domTree.documentElement
 
-        for num in range(50, 100):
+        for num in range(1, 30):
             name = "Demo" + str(num)
             customer_node = domTree.createElement("Devices")  # 创建子节点，
             customer_node.setAttribute("Assemble", r"Devices\Receiver\ReceiverDemo.dll")
@@ -87,12 +87,12 @@ class Write_Data_Tasks:
 
     def write_Tasks(self):
 
-        for num in range(50, 100):
+        for num in range(1, 30):
 
             name = "Demo" + str(num)
 
-            with open('../../data/DeviceRegister/Tasks_Demo.xml', "r", encoding="utf-8") as f1, \
-                    open("../../data/DeviceRegister/Tasks.xml", "a", encoding="utf-8") as f2:
+            with open(r'../../data/DeviceRegister/Tasks_Demo.xml', "r", encoding="utf-8") as f1, \
+                    open(r"../../data/DeviceRegister/Tasks.xml", "a", encoding="utf-8") as f2:
 
                 for line in f1:
                     if "%s" in line:
@@ -101,5 +101,5 @@ class Write_Data_Tasks:
 
 
 if __name__ == '__main__':
-    # Simulation_Servermanager().writer_Devices()
+    Simulation_Servermanager().writer_Devices()
     Write_Data_Tasks().write_Tasks()
