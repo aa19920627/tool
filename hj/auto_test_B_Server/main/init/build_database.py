@@ -4,11 +4,11 @@
 
 初始化数据库
 '''
-
+from component.loading_config import database_config
 from component.sqlite_method import ManageSqlite
 
 # 数据库名
-DATABASE_NAME = 'auto_b_server'
+DATABASE_NAME = database_config()
 
 
 def build_database():
@@ -43,7 +43,8 @@ def build_database():
                 equname VARCHAR (50),
                 fuc_name VARCHAR (50),
                 fuc_en_name VARCHAR (50),
-                url VARCHAR (255)
+                url VARCHAR (255),
+                request_message VARCHAR (10000)
                 )
     '''
     # 创建function_base_info表，存放设备基础能力对照表

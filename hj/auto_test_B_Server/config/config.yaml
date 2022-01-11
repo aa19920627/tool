@@ -1,3 +1,11 @@
 #数据库
 DATABASE:
   db: auto_b_server
+
+#可测试能力
+FEATURE:
+  featurelist: [ 'B_FScan', 'B_PScan', 'B_SglFreqMeas', 'B_SglFreqDF', 'B_WBDF', 'B_FScanDF' ]
+
+#ip配置
+HOST:
+  host: 192.168.11.74
