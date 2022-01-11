@@ -13,7 +13,6 @@ from main.base_component.request_interface import RequestInterface
 from main.function_module.register_center.register import RegisterStationDevice
 
 DATABASE_NAME = database_config()
-HOST_ADDRESS = host_config()
 
 
 # 设备能力生成类
@@ -85,7 +84,7 @@ class GenerateFunction(object):
                 # 循环获取响应报文中srrc:parameter节点,作为item节点中paraname和paravalue的输入
                 for parameter in i.findall('.//srrc:parameter', mx.ns):
                     # 获取srrc:parameter中displayname和defaultvalue节点的值,作为请求报文中paraname,paravalue的输入
-                    name = parameter.find('.//srrc:displayname', mx.ns).text
+                    name = parameter.find('.//srrc:name', mx.ns).text
                     defaultvalue = parameter.find('.//srrc:defaultvalue', mx.ns).text
 
                     # 添加srrc:item节点
@@ -109,19 +108,19 @@ class GenerateFunction(object):
                 datachannel_node.text = 'stream'
                 # 添加host节点，设置值为配置的ip地址
                 host_node = mx_feature.append_code(outputchannel_node, 'srrc:host')
-                host_node.text = HOST_ADDRESS
                 # 添加port节点，接收数据的端口
                 port_node = mx_feature.append_code(outputchannel_node, 'srrc:port')
-                port_node.text = str(random.randint(60000, 65000))
                 # 添加stc节点,stream唯一标志
                 stc_node = mx_feature.append_code(outputchannel_node, 'srrc:stc')
-                stc_node.text = 'test'
+                stc_node.text = str(random.randint(1,1000))
                 # 保存报文
                 mx_feature.write_xml()
 
                 # 再读取文件，返回字符串
                 path = os.path.join(os.path.dirname(__file__), '../../../data/xml/temp.xml')
                 request_xml_string = mx.get_xml_string(path)
+                # 去除request_xml_string中的\n和\t
+                request_xml_string = request_xml_string.replace('\t', '').replace('\n', '')
                 # 获取url
                 url, mfid = self.get_function_base_info(equid, feature_soapaction)
 
@@ -137,7 +136,7 @@ class GenerateFunction(object):
 
         # 获取设备服务基本信息
         feature_base_info_list = self.generate_equip_operation_xml(equid)
-
+        # print(feature_base_info_list)
         # 写入数据库
         RegisterStationDevice().insert_function_info(feature_base_info_list)
 

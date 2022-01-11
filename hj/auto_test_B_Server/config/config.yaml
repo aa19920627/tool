@@ -6,6 +6,9 @@ DATABASE:
 FEATURE:
   featurelist: [ 'B_FScan', 'B_PScan', 'B_SglFreqMeas', 'B_SglFreqDF', 'B_WBDF', 'B_FScanDF' ]
 
-#ip配置
-HOST:
+#检查实时任务
+CHECK:
   host: 192.168.11.74
+  #任务执行时间(秒)
+  executetime: 10
+

@@ -28,7 +28,13 @@ def feature_list_config():
 #  ip地址
 def host_config():
     # 返回ip地址
-    return cv['HOST']['host']
+    return cv['CHECK']['host']
+
+
+# executetime任务执行时间
+def executetime_config():
+    # 返回int，单位秒
+    return cv['CHECK']['executetime']
 
 
 if __name__ == '__main__':

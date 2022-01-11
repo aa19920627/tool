@@ -1,15 +1,24 @@
+# -*- coding: utf-8 -*-
 '''
 @Author：洪建
 @Date：2022/1/4 15:13
 通用接口调用方法
 '''
+import random
+
 import requests as requests
 
-from component.loading_config import database_config
+from component.loading_config import database_config, executetime_config, host_config
 from component.manage_xml import ManageXml
 from component.sqlite_method import ManageSqlite
 
+# 数据库名
 DATABASE_NAME = database_config()
+# 任务执行时间
+EXECUTETIME = executetime_config()
+# 接收数据的ip地址
+HOST_ADDR = host_config()
+
 
 class RequestInterface(object):
     '''
@@ -56,9 +65,42 @@ class RequestInterface(object):
         url = 'http://%s:%s/%s/%s/%s' % (ip, port, mfid, equname, 'B_QueryFaciDevStat')
         self.headers['SOAPAction'] = 'B_QueryFaciDevStat'
 
-        #返回B_QueryFaciDevStat的响应报文
+        # 返回B_QueryFaciDevStat的响应报文
         return self.re.post(url=url, data=xml_message, headers=self.headers).text
+
+    # 设备操作服务调用的通用方法
+    def call_equipment_operation_service(self, equid, soapaction):
+        # 获取请求报文和设备的基本信息
+        # 根据soapaction和equid查询请求报文和url、mfid
+        ms = ManageSqlite(DATABASE_NAME)
+        mfid, url, request_message = ms.get_fetchone(
+            "SELECT mfid,url,request_message FROM function WHERE fuc_en_name='%s' AND equid='%s'" % (soapaction, equid))
+        # 根据equid查询mfid
+
+        # 实例化xml操作类
+        xm = ManageXml(xml_string=request_message)
+        # 替换executetime(通过配置文件)，mfid，equid的值
+        xm.root.find('.//srrc:executetime', xm.ns).text = str(EXECUTETIME)
+        xm.root.find('.//srrc:mfid', xm.ns).text = mfid
+        xm.root.find('.//srrc:equid', xm.ns).text = equid
+
+        # 替换outputchannel中的host（配置文件）和port
+        xm.root.find('.//srrc:host', xm.ns).text = str(HOST_ADDR)
+        port = str(random.randint(60000, 65000))
+        xm.root.find('.//srrc:port', xm.ns).text = port
+
+        # # 保存修改
+        # xm.write_xml()
+        # # 读取修改后的内容
+        # request_message = xm.get_xml_string(xm.temp_path).encode('utf-8')
+        request_message = xm.tosrting_xml(xm.root)
+        # headers替换值
+        self.headers['SOAPAction'] = soapaction
+
+        # 发送请求，获取响应报文
+        return self.re.post(url=url, data=request_message, headers=self.headers)
+
 
 if __name__ == '__main__':
     ri = RequestInterface()
-    print(ri.get_B_QueryFaciDevStat('a6590676-f5a7-4220-b105-a6ea4edbd77b'))
+    ri.call_equipment_operation_service('a6590676-f5a7-4220-b105-a6ea4edbd77b', 'B_FScan')

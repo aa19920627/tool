@@ -38,13 +38,20 @@ class ManageXml(object):
         new_parent_node = ET.SubElement(parent_node, child_node_name)
         return new_parent_node
 
-    # 将element对象转换为字符串，返回字符串
+    # 读取xml文件，返回字符串
     def get_xml_string(self, path):
 
         with open(path, encoding='utf-8') as f:
             return f.read()
 
-    # 保存xml修改函数
+    # 将xml对象element转换为字符串
+    def tosrting_xml(self, element):
+
+        # tostring生成的是byte类型，需要decode转换一下
+
+        return ET.tostring(element, encoding='unicode').encode('utf-8')
+
+    # 保存xml修改函数到临时文件
     def write_xml(self):
         # self.tree = ET.ElementTree(self.root)
         # 保存修改，写入临时xml文件
