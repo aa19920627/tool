@@ -68,8 +68,9 @@ class RequestInterface(object):
         # 返回B_QueryFaciDevStat的响应报文
         return self.re.post(url=url, data=xml_message, headers=self.headers).text
 
-    # 设备操作服务调用的通用方法
-    def call_equipment_operation_service(self, equid, soapaction):
+    # 下面两个函数是设备操作服务调用的通用方法
+    # 获取url,request_message,ip,port
+    def cequipment_operation_servic_data(self, equid, soapaction):
         # 获取请求报文和设备的基本信息
         # 根据soapaction和equid查询请求报文和url、mfid
         ms = ManageSqlite(DATABASE_NAME)
@@ -89,18 +90,19 @@ class RequestInterface(object):
         port = str(random.randint(60000, 65000))
         xm.root.find('.//srrc:port', xm.ns).text = port
 
-        # # 保存修改
-        # xm.write_xml()
-        # # 读取修改后的内容
-        # request_message = xm.get_xml_string(xm.temp_path).encode('utf-8')
+        # 获取修改后的xml报文
         request_message = xm.tosrting_xml(xm.root)
+
+        return url, request_message, str(HOST_ADDR), port
+
+    # 调用设备操作服务，获取响应结果
+    def call_equipment_operation_service(self, url, request_message, soapaction):
         # headers替换值
         self.headers['SOAPAction'] = soapaction
-
         # 发送请求，获取响应报文
         return self.re.post(url=url, data=request_message, headers=self.headers)
 
 
 if __name__ == '__main__':
     ri = RequestInterface()
-    ri.call_equipment_operation_service('a6590676-f5a7-4220-b105-a6ea4edbd77b', 'B_FScan')
+    ri.get_B_QueryDeviceInfo('a6590676-f5a7-4220-b105-a6ea4edbd77b')

@@ -79,8 +79,7 @@ class GenerateFunction(object):
                 '''
                 下面是item节点，存放参数，循环节点
                 '''
-                # 定义一个列表,用来接收item
-                item_list = []
+
                 # 循环获取响应报文中srrc:parameter节点,作为item节点中paraname和paravalue的输入
                 for parameter in i.findall('.//srrc:parameter', mx.ns):
                     # 获取srrc:parameter中displayname和defaultvalue节点的值,作为请求报文中paraname,paravalue的输入
@@ -94,9 +93,7 @@ class GenerateFunction(object):
                     paraname_node.text = name
                     paravalue_node = mx_feature.append_code(item_node, 'srrc:paravalue')
                     paravalue_node.text = defaultvalue
-                    item_list.append(item_node)
-                # 添加多个item节点
-                items_node.extend(item_list)
+
                 # 添加outputchannel节点,定义数据传输方式
                 outputchannel_node = mx_feature.append_code(mx_feature.root.find('.//srrc:requestbody', mx_feature.ns),
                                                             'srrc:outputchannel')
@@ -112,7 +109,7 @@ class GenerateFunction(object):
                 port_node = mx_feature.append_code(outputchannel_node, 'srrc:port')
                 # 添加stc节点,stream唯一标志
                 stc_node = mx_feature.append_code(outputchannel_node, 'srrc:stc')
-                stc_node.text = str(random.randint(1,1000))
+                stc_node.text = str(random.randint(1, 1000))
                 # 保存报文
                 mx_feature.write_xml()
 
@@ -142,4 +139,4 @@ class GenerateFunction(object):
 
 
 if __name__ == '__main__':
-    gf = GenerateFunction().register_equip_operation('a6590676-f5a7-4220-b105-a6ea4edbd77b')
+    gf = GenerateFunction().register_equip_operation('c4a5f62f-07cd-4876-a368-cf78bd688144')

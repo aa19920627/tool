@@ -21,27 +21,18 @@ class RegisterStationDevice(object):
 
     # 往数据库写入监测站注册信息
     def insert_station_info(self, values):
-        try:
-            self.ms.operation_sqlite('INSERT INTO station (mfid,mfname,area) values %s' % values)
-            self.ms.close_cur_conn()
-        except:
-            return '注册失败'
-        return '注册成功'
+        self.ms.operation_sqlite('INSERT INTO station (mfid,mfname,area) values %s' % values)
+        self.ms.close_cur_conn()
 
     # 往数据库写入设备注册信息
     def insert_device_info(self, values):
-        try:
-            self.ms.operation_sqlite('INSERT INTO device (mfid,mfname,equid,equname,type,ip,port) values %s' % values)
-            self.ms.close_cur_conn()
-        except:
-            return '注册失败'
-        return '注册成功'
+        self.ms.operation_sqlite('INSERT INTO device (mfid,mfname,equid,equname,type,ip,port) values %s' % values)
+        self.ms.close_cur_conn()
 
     # 往function表写入设备操作服务的基本信息
     # {'mfid': mfid, 'equid': equid, 'url': url, 're_message': request_xml_string,
     #                      'SoapAction': feature_soapaction}
     def insert_function_info(self, function):
-
         for func in function:
             # 获取mfname,equname,func_name的值
             mfname, equname = self.ms.get_fetchone(
@@ -60,6 +51,6 @@ class RegisterStationDevice(object):
 
 if __name__ == '__main__':
     red = RegisterStationDevice()
-    # print(red.insert_station_info("('51010001120999','山西信号分析','510100')"))
-    # red.insert_device_info("('51010001120999','山西信号分析','a6590676-f5a7-4220-b105-a6ea4edbd77b','DGR2212','1',"
-    #                        "'192.168.11.119','8010')")
+    # red.insert_station_info("('15000001120001','内蒙古自治区监测站1','150000')")
+    red.insert_device_info("('15000001120001','内蒙古自治区监测站1','c4a5f62f-07cd-4876-a368-cf78bd688144','nmg-1','1',"
+                           "'192.168.11.119','8010')")
