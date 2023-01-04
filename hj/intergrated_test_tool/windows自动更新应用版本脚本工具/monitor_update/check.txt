@@ -1,0 +1,11 @@
+open 172.17.58.80   
+monitor
+123456
+prompt off
+lcd D:\dgbc\windows
+cd heading_code
+get 37020001110006.cit
+close
+prompt on
+bye
+quit

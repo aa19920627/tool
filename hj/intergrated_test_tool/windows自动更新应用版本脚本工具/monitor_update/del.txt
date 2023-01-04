@@ -1,0 +1,10 @@
+open 192.168.16.181
+monitor
+123456
+prompt off
+cd heading_code
+delete test.cit
+close
+prompt on 
+bye 
+quit

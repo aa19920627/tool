@@ -1,0 +1,10 @@
+open 192.168.16.181
+monitor
+123456
+prompt off
+lcd D:\dgbc\windows
+get monitor-web-new.jar
+close 
+prompt on
+bye
+quit
