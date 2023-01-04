@@ -13,11 +13,11 @@ config:
   currentusername: 成都无线电管理员
 
   #管控url信息
-  facility_add: http://192.168.11.134:54000/facility/add
-  equip_add: http://192.168.11.134:54000/device/add
-  facility_list: http://192.168.11.134:54000/facility/list
-  equip_list: http://192.168.11.134:54000/device/list
-  function_add: http://192.168.11.134:54000/function/add
+  facility_add: http://192.168.11.115:54000/facility/add
+  equip_add: http://192.168.11.115:54000/device/add
+  facility_list: http://192.168.11.115:54000/facility/list
+  equip_list: http://192.168.11.115:54000/device/list
+  function_add: http://192.168.11.115:54000/function/add
 
   #全景运维url信息
   machine_add: http://192.168.11.134:11220/machine
@@ -27,7 +27,7 @@ config:
   serversoftware_monitor: http://192.168.11.134:11220/serverSoftware
   software_list: http://192.168.11.134:11220/software/search
   machine_list: http://192.168.11.134:11220/machine/search
-  mobile_add: http://192.168.11.134:8082/machineTrack
+  mobile_add: http://192.168.11.134:58082/machineTrack
 
   #网络信息
   gateway_ip: 192.168.11.1

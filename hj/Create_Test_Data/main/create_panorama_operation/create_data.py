@@ -292,6 +292,6 @@ class Create_Data:
 if __name__ == '__main__':
 
     # Create_Data().register_IPC(1)   #注册工控机，传参为每个监测站建几个工控机
-    # Create_Data().register_software(30)   #注册软件，传参为注册的软件总量
+    Create_Data().register_software(1000)   #注册软件，传参为注册的软件总量
     # Create_Data().relevance_software_equip(1)   #设置设备和软件的关联关系，传参为每个设备关联的软件数量，该接口仅用于关联指定监测站(部署monitor)的设备
-    Create_Data().add_mobile_car_running(200, '7bd9a4b6-a02d-48c0-bd2f-7732eca5d7fd')
+    # Create_Data().add_mobile_car_running(200, '7bd9a4b6-a02d-48c0-bd2f-7732eca5d7fd')

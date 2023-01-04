@@ -203,7 +203,8 @@ class Faker_Data:
 
         '''生成11段的随机ip'''
 
-        return "192.168.11." + str(random.randint(2,100))
+        # return "192.168.11." + str(random.randint(2,100))
+        return "192.168.11.135"
 
     def uuid(self):
 

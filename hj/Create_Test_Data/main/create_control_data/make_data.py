@@ -306,13 +306,13 @@ class  Make_Data:
 if __name__ == '__main__':
 
     #注册监测站，传参：个数
-    # Make_Data().register_facility(20)
+    # Make_Data().register_facility(500)
     #
     # #注册监测测向设备，传参，个数
-    # Make_Data().register_equip(55)
+    # Make_Data().register_equip(2000)
 
     # #注册设备能力
-    # Make_Data().register_function()
+    Make_Data().register_function()
 
 
     # Make_Data().register_monitor_facility()   #注册带monitor的监测站

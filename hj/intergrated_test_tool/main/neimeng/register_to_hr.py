@@ -236,8 +236,8 @@ if __name__ == '__main__':
 
     rth = Register_To_Hr()
     #注册监测站
-    # rth.register_station()
+    rth.register_station()
     #注册监测设备
     # rth.register_equip_choose()
     #注册设备能力
-    rth.register_base_equip()
+    # rth.register_base_equip()
