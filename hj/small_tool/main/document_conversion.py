@@ -16,6 +16,3 @@ def word_conversion_pdf():
     path = '../data'
     office.word.docx2pdf(path=path)
 
-if __name__ == '__main__':
-    
-    # word_conversion_pdf()
