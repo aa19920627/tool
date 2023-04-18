@@ -51,6 +51,17 @@ class Basic_data:
 
         return self.file["config"]["function_add"]
 
+    def function_query_rul(self):
+
+        '''设备能力查询api'''
+
+        return self.file["config"]["equip_list"]
+
+    def features_search_url(self):
+
+        '''查询设备能力的中文对照表api'''
+        return self.file["config"]["features_search"]
+
 if __name__ == '__main__':
 
     print(Basic_data().machine_list_url())

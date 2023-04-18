@@ -68,6 +68,11 @@ class Basic_data:
 
         return self.file["config"]["function_add"]
 
+    def features_search_url(self):
+
+        '''查询设备能力的中文对照表api'''
+        return self.file["config"]["features_search"]
+
     def machine_add_url(self):
 
         '''全景运维-注册设备API地址'''

@@ -19,6 +19,7 @@ class Get_Token:
 
         token = {'test-key': '123',
                  'token': Basic_data().token(),
-                 'X-Requested-With': 'XMLHttpRequest'}
+                 'X-Requested-With': 'XMLHttpRequest',
+                 'Content-Type':'application/json;charset=UTF-8'}
 
         return token

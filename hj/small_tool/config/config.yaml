@@ -13,11 +13,12 @@ config:
   currentusername: 成都无线电管理员
 
   #管控url信息
-  facility_add: http://192.168.11.115:54000/facility/add
-  equip_add: http://192.168.11.115:54000/device/add
-  facility_list: http://192.168.11.115:54000/facility/list
-  equip_list: http://192.168.11.115:54000/device/list
-  function_add: http://192.168.11.115:54000/function/add
+  facility_add: http://192.168.11.155:54000/facility/add
+  equip_add: http://192.168.11.155:54000/device/add
+  facility_list: http://192.168.11.155:54000/facility/list
+  equip_list: http://192.168.11.155:54000/device/list
+  function_add: http://192.168.11.155:54000/function/update
+  features_search: http://192.168.11.155:54000/device/features
 
   #全景运维url信息
   machine_add: http://192.168.11.134:11220/machine
