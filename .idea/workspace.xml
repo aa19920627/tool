@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae201e4a-fbaf-4ae5-b95f-030d7cbb2a7e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hj/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hj/small_tool/data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hj/small_tool/main/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hj/small_tool/main/document_conversion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/small_tool/common/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/small_tool/common/basic_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/small_tool/common/frozen_path.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/small_tool/common/get_token.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/small_tool/config/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/small_tool/config/config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/small_tool/data/安徽系统服务417.xls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/small_tool/main/registration_Integration_Information.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,16 +55,22 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/WorkSpace/git/tool",
+    "last_opened_file_path": "D:/WorkSpace/git/tool/hj/small_tool/data",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WorkSpace\git\tool\hj\small_tool\data" />
+      <recent name="D:\WorkSpace\git\tool\hj\small_tool\common" />
+      <recent name="D:\WorkSpace\git\tool\hj\small_tool" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WorkSpace\git\tool\hj\small_tool\data" />
       <recent name="D:\WorkSpace\git\tool\hj\small_tool\main" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.registration_Integration_Information">
     <configuration name="document_conversion" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tool" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -82,8 +92,52 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="frozen_path" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="tool" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hj/small_tool/common" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hj/small_tool/common/frozen_path.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="registration_Integration_Information" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="tool" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hj/small_tool/main" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hj/small_tool/main/registration_Integration_Information.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.registration_Integration_Information" />
+        <item itemvalue="Python.frozen_path" />
         <item itemvalue="Python.document_conversion" />
       </list>
     </recent_temporary>
@@ -113,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672812811518</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="word批量转pdf工具">
+      <created>1672814878230</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672814878230</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +214,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="调整结构" />
     <MESSAGE value="增加小工具存放目录" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加小工具存放目录" />
+    <MESSAGE value="word批量转pdf工具" />
+    <option name="LAST_COMMIT_MESSAGE" value="word批量转pdf工具" />
   </component>
 </project>
