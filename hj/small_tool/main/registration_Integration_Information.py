@@ -45,6 +45,7 @@ class Make_Data:
                 BScode = row[1].replace("P", "B")
                 soapaction = row[3].split("/")[5]
                 appcode = row[4]
+                baseurl = row[3]
 
                 # 获取系统表中的mfid
                 for row_app in ws_app.values:
@@ -54,7 +55,7 @@ class Make_Data:
                         # print(len(mfid))
 
                         # 用mfid来获取设备能力的源服务地址
-                        baseurl = self.get_baseserviceurl(mfid, soapaction)
+                        # baseurl = self.get_baseserviceurl(mfid, soapaction)
                         soapaction_name = self.features_search(soapaction)
                         # print(baseurl,soapaction_name)
                         # 验证是否获取到正确的服务源地址和服务中文名
@@ -64,11 +65,11 @@ class Make_Data:
                             self.update_function(mfid, equip, soapaction, soapaction_name, BScode, PScode, baseurl)
                             print("注册成功" + "   " + mfid + "    " + soapaction)
                         else:
-                            # print("未查询到对应的设备能力或未查询到对应的服务中文名")
+                            # print('注册失败' + mfid + str(baseurl) + '    ' + str(soapaction))
                             # 将注册失败的日志写入文件
                             with open(self.log_path, 'a', encoding='utf-8') as f:
                                 f.write(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "      " +
-                                        mfid + "/" + equip + "/" + soapaction + "/" + PScode + "   " + "未查询到对应的设备能力或未查询到对应的服务中文名")
+                                        mfid + "/" + equip + "/" + soapaction + "/" + PScode + "   " + "未查询到对应的设备能力或未查询到对应的服务中文名" + "\n")
                             continue
 
     def get_baseserviceurl(self, query_mfid, soapaction):
@@ -131,3 +132,4 @@ if __name__ == '__main__':
     # mk.read_excel()
     # mk.get_baseserviceurl("51010000110055", 'B_FScan')
     mk.read_excel()
+    # print(mk.features_search('B_MScan'))
