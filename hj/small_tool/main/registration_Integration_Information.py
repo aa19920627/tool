@@ -24,6 +24,7 @@ class Make_Data:
         self.token = Get_Token().get_token()
         self.file = Frozen_Path().app_path() + "\data\安徽一体化服务信息.xlsx"  # 读取一体化平台导出的服务信息表位置
         self.log_path = Frozen_Path().app_path() + "\log\/registration_Integration_Information.log"
+        self.baseserviceproxyurl = Basic_data().baseserviceproxy_url()  # 获取一体化平台的总线地址
 
     def read_excel(self):
 
@@ -47,8 +48,10 @@ class Make_Data:
 
                 # 获取系统表中的mfid
                 for row_app in ws_app.values:
-                    if row_app[0] == appcode:
+                    if row_app[0] == appcode and len(row_app[2]) == 14:
                         mfid = row_app[2]
+
+                        # print(len(mfid))
 
                         # 用mfid来获取设备能力的源服务地址
                         baseurl = self.get_baseserviceurl(mfid, soapaction)
@@ -59,6 +62,7 @@ class Make_Data:
 
                             # 调用更新接口更新设备能力的信息
                             self.update_function(mfid, equip, soapaction, soapaction_name, BScode, PScode, baseurl)
+                            print("注册成功" + "   " + mfid + "    " + soapaction)
                         else:
                             # print("未查询到对应的设备能力或未查询到对应的服务中文名")
                             # 将注册失败的日志写入文件
@@ -79,11 +83,14 @@ class Make_Data:
         res = self.session.post(url, json=data, headers=self.token)
 
         # 获取对应设备能力的baserul
-        for i in res.json()['object']['data'][0]['devicefunctions']:
-            # print(i['feature'],soapaction)
-            if i['feature'] == soapaction:
-                return i['baseserviceurl']
 
+        try:
+            for i in res.json()['object']['data'][0]['devicefunctions']:
+                # print(i['feature'],soapaction)
+                if i['feature'] == soapaction:
+                    return i['baseserviceurl']
+        except:
+            return None
         return None
 
     def features_search(self, soapaction):
@@ -112,8 +119,8 @@ class Make_Data:
                 "displayname": displayname,
                 "serviceCode": serviceCode,
                 "psServiceCode": psServiceCode,
-                "baseserviceurl": "",
-                "baseserviceproxyurl": baseserviceurl}
+                "baseserviceurl": baseserviceurl,
+                "baseserviceproxyurl": self.baseserviceproxyurl}
 
         res = self.session.put(url=url, json=data, headers=self.token)
 

@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae201e4a-fbaf-4ae5-b95f-030d7cbb2a7e" name="Changes" comment="更新管控上服务PScode信息的工具">
+    <list default="true" id="ae201e4a-fbaf-4ae5-b95f-030d7cbb2a7e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hj/small_tool/data/安徽系统服务417.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hj/small_tool/data/安徽系统服务417.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hj/small_tool/common/basic_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/hj/small_tool/common/basic_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hj/small_tool/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/hj/small_tool/config/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hj/small_tool/main/registration_Integration_Information.py" beforeDir="false" afterPath="$PROJECT_DIR$/hj/small_tool/main/registration_Integration_Information.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,6 +68,48 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.registration_Integration_Information">
+    <configuration name="app_start" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="tool" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hj/small_tool" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hj/small_tool/app_start.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="basic_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="tool" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hj/small_tool/common" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hj/small_tool/common/basic_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="document_conversion" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tool" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -134,6 +176,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.registration_Integration_Information" />
+        <item itemvalue="Python.basic_data" />
+        <item itemvalue="Python.app_start" />
         <item itemvalue="Python.frozen_path" />
         <item itemvalue="Python.document_conversion" />
       </list>
@@ -199,7 +243,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681809750321</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="更新管控上服务PScode信息的工具">
+      <created>1681961113636</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681961113636</updated>
+    </task>
+    <task id="LOCAL-00009" summary="更新管控上服务PScode信息的工具">
+      <created>1681961169871</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681961169871</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

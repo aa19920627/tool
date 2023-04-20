@@ -12,13 +12,16 @@ config:
   currentuserid: 51000001
   currentusername: 成都无线电管理员
 
+  #一体化平台总线地址
+  baseserviceproxyurl : http://192.168.11.155:54000
   #管控url信息
-  facility_add: http://192.168.11.155:54000/facility/add
-  equip_add: http://192.168.11.155:54000/device/add
-  facility_list: http://192.168.11.155:54000/facility/list
-  equip_list: http://192.168.11.155:54000/device/list
-  function_add: http://192.168.11.155:54000/function/update
-  features_search: http://192.168.11.155:54000/device/features
+  control_url: http://192.168.11.155:54000
+  facility_add: /facility/add
+  equip_add: /device/add
+  facility_list: /facility/list
+  equip_list: /device/list
+  function_add: /function/update
+  features_search: /device/features
 
   #全景运维url信息
   machine_add: http://192.168.11.134:11220/machine

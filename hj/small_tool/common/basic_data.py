@@ -10,58 +10,55 @@ from hj.small_tool.common.frozen_path import Frozen_Path
 
 
 class Basic_data:
-
     '''全景运维，管控系统数据使用'''
 
     def __init__(self):
-
         self.path = Frozen_Path().app_path() + "/config/config.yaml"
 
         f = open(self.path, encoding='utf-8').read()
 
         self.file = yaml.load(f, Loader=yaml.FullLoader)
 
-    def token(self):
+        self.control_url = self.file["config"]["control_url"]  # 获取管控的通用url
 
+    def token(self):
         '''万能token'''
 
         return self.file["config"]["token"]
 
     def currentuserid(self):
-
         '''用户id'''
 
         return self.file["config"]["currentuserid"]
 
     def currentusername(self):
-
         '''用户名'''
 
         return self.file["config"]["currentusername"]
 
     def gateway_ip(self):
-
         '''默认网关'''
 
         return self.file["config"]["gateway_ip"]
 
     def function_add_url(self):
-
         '''设备能力注册接口api'''
 
-        return self.file["config"]["function_add"]
+        return self.control_url + self.file["config"]["function_add"]
 
     def function_query_rul(self):
-
         '''设备能力查询api'''
 
-        return self.file["config"]["equip_list"]
+        return self.control_url + self.file["config"]["equip_list"]
 
     def features_search_url(self):
-
         '''查询设备能力的中文对照表api'''
-        return self.file["config"]["features_search"]
+        return self.control_url + self.file["config"]["features_search"]
+
+    def baseserviceproxy_url(self):
+        '''读取一体化平台总线地址'''
+
+        return self.file["config"]["baseserviceproxyurl"]
 
 if __name__ == '__main__':
-
-    print(Basic_data().machine_list_url())
+    print(Basic_data().features_search_url())
