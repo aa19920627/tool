@@ -22,7 +22,7 @@ class Make_Data:
 
         self.session = requests.session()
         self.token = Get_Token().get_token()
-        self.file = Frozen_Path().app_path() + "\data\安徽系统服务417.xlsx"  # 读取一体化平台导出的服务信息表位置
+        self.file = Frozen_Path().app_path() + "\data\安徽一体化服务信息.xlsx"  # 读取一体化平台导出的服务信息表位置
         self.log_path = Frozen_Path().app_path() + "\log\/registration_Integration_Information.log"
 
     def read_excel(self):
@@ -64,7 +64,7 @@ class Make_Data:
                             # 将注册失败的日志写入文件
                             with open(self.log_path, 'a', encoding='utf-8') as f:
                                 f.write(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "      " +
-                                        mfid + ";" + equip + "/" + soapaction + "/" + PScode + "   " + "未查询到对应的设备能力或未查询到对应的服务中文名")
+                                        mfid + "/" + equip + "/" + soapaction + "/" + PScode + "   " + "未查询到对应的设备能力或未查询到对应的服务中文名")
                             continue
 
     def get_baseserviceurl(self, query_mfid, soapaction):
