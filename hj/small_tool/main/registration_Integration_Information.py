@@ -2,7 +2,7 @@
 @Author: 洪建
 @Date 2023/4/18 11:41
 '''
-import json
+import re
 import time
 
 import requests
@@ -43,7 +43,15 @@ class Make_Data:
                 equip = row[0]
                 PScode = row[1]
                 BScode = row[1].replace("P", "B")
-                soapaction = row[3].split("/")[5]
+                # soapaction = row[3].split("/")[5]
+
+                # 兼容不符合规范的url地址，获取soapaction
+                for serverice in row[3].split("/"):
+                    soapaction_b = re.match("B_", serverice)
+                    soapaction_e = re.match("E_", serverice)
+                    if soapaction_b or soapaction_e:
+                        soapaction = serverice
+
                 appcode = row[4]
                 baseurl = row[3]
 

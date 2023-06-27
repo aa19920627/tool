@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae201e4a-fbaf-4ae5-b95f-030d7cbb2a7e" name="Changes" comment="">
+    <list default="true" id="ae201e4a-fbaf-4ae5-b95f-030d7cbb2a7e" name="Changes" comment="更新管控上服务PScode信息的工具">
+      <change afterPath="$PROJECT_DIR$/hj/network_test/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/network_test/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/network_test/network_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hj/small_tool/data/安徽一体化服务信息-省中心.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hj/small_tool/data/安徽一体化服务信息-安庆.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/hj/small_tool/main/registration_Integration_Information.py" beforeDir="false" afterPath="$PROJECT_DIR$/hj/small_tool/main/registration_Integration_Information.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,22 +54,24 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/WorkSpace/git/tool/hj/small_tool/data&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/WorkSpace/git/tool/hj/network_test&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WorkSpace\git\tool\hj\network_test" />
       <recent name="D:\WorkSpace\git\tool\hj\small_tool\data" />
       <recent name="D:\WorkSpace\git\tool\hj\small_tool\common" />
       <recent name="D:\WorkSpace\git\tool\hj\small_tool" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WorkSpace\git\tool\hj\network_test\data" />
       <recent name="D:\WorkSpace\git\tool\hj\small_tool\data" />
       <recent name="D:\WorkSpace\git\tool\hj\small_tool\main" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.registration_Integration_Information">
+  <component name="RunManager" selected="Python.network_test">
     <configuration name="app_start" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tool" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -109,27 +114,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="document_conversion" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="tool" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hj/small_tool/main" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hj/small_tool/main/document_conversion.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="frozen_path" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tool" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,6 +127,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hj/small_tool/common/frozen_path.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="network_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="tool" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hj/network_test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hj/network_test/network_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -174,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.network_test" />
         <item itemvalue="Python.registration_Integration_Information" />
         <item itemvalue="Python.basic_data" />
         <item itemvalue="Python.app_start" />
         <item itemvalue="Python.frozen_path" />
-        <item itemvalue="Python.document_conversion" />
       </list>
     </recent_temporary>
   </component>
@@ -263,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681969803927</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="更新管控上服务PScode信息的工具">
+      <created>1681975399576</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681975399576</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
