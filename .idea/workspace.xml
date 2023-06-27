@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae201e4a-fbaf-4ae5-b95f-030d7cbb2a7e" name="Changes" comment="更新管控上服务PScode信息的工具">
-      <change afterPath="$PROJECT_DIR$/hj/network_test/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hj/network_test/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hj/network_test/network_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hj/small_tool/data/安徽一体化服务信息-安庆.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hj/small_tool/main/registration_Integration_Information.py" beforeDir="false" afterPath="$PROJECT_DIR$/hj/small_tool/main/registration_Integration_Information.py" afterDir="false" />
-    </list>
+    <list default="true" id="ae201e4a-fbaf-4ae5-b95f-030d7cbb2a7e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -275,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681975399576</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="更新网络测试工具">
+      <created>1687856465924</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1687856465924</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,6 +317,7 @@
     <MESSAGE value="增加小工具存放目录" />
     <MESSAGE value="word批量转pdf工具" />
     <MESSAGE value="更新管控上服务PScode信息的工具" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新管控上服务PScode信息的工具" />
+    <MESSAGE value="更新网络测试工具" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新网络测试工具" />
   </component>
 </project>
