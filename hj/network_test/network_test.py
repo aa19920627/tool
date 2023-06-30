@@ -18,7 +18,8 @@ class Network_Test:
 
     def __int__(self):
 
-        self.file = self.app_path() + "/network_test/data/ip_list.xlsx"
+        # self.file = self.app_path() + "/network_test/data/ip_list.xlsx"
+        pass
 
     def test_network(self):
         '''
@@ -34,11 +35,12 @@ class Network_Test:
             staion_name, mfid, ip = i
             exit_code = os.system('ping %s' % ip)
             if exit_code == 0:
-                report_list.append([staion_name, mfid, ip, '正常'])
+                report_list.append((staion_name, mfid, ip, '正常'))
             else:
-                report_list.append([staion_name, mfid, ip, '网路不通'])
+                report_list.append((staion_name, mfid, ip, '网路不通'))
 
-        self.generate_report(report_list)   #将测试结果写入报告
+        self.generate_report(report_list)  # 将测试结果写入报告
+
     def app_path(self):
 
         '''
@@ -54,8 +56,8 @@ class Network_Test:
         '''
         读取ip表
         '''
-        wb = load_workbook(self.file)  # 获取工作簿对象
-        ws = wb.get_sheet_by_name(u'sheet1')  # 获取服务工作簿
+        wb = load_workbook(self.app_path() + "/network_test/data/ip_list.xlsx")  # 获取工作簿对象
+        ws = wb.get_sheet_by_name(u'Sheet1')  # 获取服务工作簿
         ip_list = []
         for row in ws.values:
 
@@ -79,16 +81,18 @@ class Network_Test:
         sheet.cell(row=1, column=4).value = '测试结果'
         sheet.cell(row=1, column=5).value = '测试时间'
 
-        for i in report_list():
+        row = 2
+        for i in report_list:
             staion_name, mfid, ip, result = i
             time_write = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-            sheet.cell(row=1, column=1).value = staion_name
-            sheet.cell(row=1, column=2).value = mfid
-            sheet.cell(row=1, column=3).value = ip
-            sheet.cell(row=1, column=4).value = result
-            sheet.cell(row=1, column=5).value = time_write
+            sheet.cell(row=row, column=1).value = staion_name
+            sheet.cell(row=row, column=2).value = mfid
+            sheet.cell(row=row, column=3).value = ip
+            sheet.cell(row=row, column=4).value = result
+            sheet.cell(row=row, column=5).value = time_write
+            row = row + 1
 
-        time_now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
+        time_now = time.strftime("%Y-%m-%d %H时%M分%S秒", time.localtime(time.time()))
         book.save(self.app_path() + "/network_test/data/%s网络测试结果.xlsx" % time_now)
 
 
