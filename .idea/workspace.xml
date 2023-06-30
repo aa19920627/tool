@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae201e4a-fbaf-4ae5-b95f-030d7cbb2a7e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hj/network_test/app_start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_10_19_10_15__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_10_19_10_15__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hj/network_test/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/hj/network_test/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hj/network_test/data/2023-06-09网络测试结果.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hj/network_test/network_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/hj/network_test/network_test.py" afterDir="false" />
-    </list>
+    <list default="true" id="ae201e4a-fbaf-4ae5-b95f-030d7cbb2a7e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
