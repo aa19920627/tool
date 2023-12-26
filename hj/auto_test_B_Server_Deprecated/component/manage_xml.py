@@ -16,6 +16,7 @@ class ManageXml(object):
     def __init__(self, xml_file_name=None, xml_string=None):
         # 定义xml文件的相对路径
         self.xml_path = os.path.join(os.path.dirname(__file__), '../data/xml/%s' % xml_file_name)
+        print(self.xml_path)
         # 定义临时xml位置
         self.temp_path = os.path.join(os.path.dirname(__file__), '../data/xml/temp.xml')
         # 判断输入对象是文件还是字符串,实例化方法不一样，xml_file_name是文件

@@ -1,0 +1,34 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:srrc="http://www.srrc.org.cn">
+   <soapenv:Header>
+   	     <srrc:MonitorHeader>
+         <!--Optional:-->
+         <srrc:TransId>test</srrc:TransId>
+         <!--Optional:-->
+         <srrc:BizKey>test</srrc:BizKey>
+         <!--Optional:-->
+         <srrc:PSCode>PS-510000-00-0001-0001</srrc:PSCode>
+         <!--Optional:-->
+         <srrc:BSCode>BS-510000-00-0001-0001</srrc:BSCode>
+         <!--Optional:-->
+         <srrc:appCode>510000-00-0001</srrc:appCode>
+         <!--Optional:-->
+         <srrc:appName>自动测试工具</srrc:appName>
+         <!--Optional:-->
+         <srrc:platFormCode>510000-00-0001</srrc:platFormCode>
+         <!--Optional:-->
+         <srrc:platFormName>XX无线电管理一体化平台（省局）</srrc:platFormName>
+         <!--Optional:-->
+         <srrc:resCode1>test</srrc:resCode1>
+         <!--Optional:-->
+         <srrc:resCode2>test</srrc:resCode2>
+      </srrc:MonitorHeader>
+   </soapenv:Header>
+   <soapenv:Body>
+      <srrc:requestbody>
+         <!--Optional:-->
+         <srrc:mfid></srrc:mfid>
+         <!--Optional:-->
+         <srrc:equid></srrc:equid>
+      </srrc:requestbody>
+   </soapenv:Body>
+</soapenv:Envelope>
