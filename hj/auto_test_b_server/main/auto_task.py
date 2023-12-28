@@ -4,9 +4,12 @@
 '''
 import socket
 
+import openpyxl
 import requests
+from openpyxl import workbook
 from ping3 import ping
 
+from auto_test_b_server.main.component import Frozen_Path
 from auto_test_b_server.main.manage_xml import ManageXml
 
 '''
@@ -21,74 +24,99 @@ class Test_Network_Connectivity:
     def __int__(self):
         pass
 
+    # 步骤1：检测网络连通性
     def test_network_connectivity(self, host):
-        '''
-        步骤1：检测网络连通性
-        '''
+
         try:
             # 发送ICMP请求，timeout参数设置超时时间
             result = ping(host, timeout=2)
 
             if result is not None:
                 # 主机可达
-                print(f"主机{host}网络正常")
+                # print(f"主机{host}网络正常")
                 return True
             else:
                 # 主机不可达
-                print(f"主机{host}网络不通")
+                # print(f"主机{host}网络不通")
                 return False
         except Exception as e:
             # 发生异常
             print("捕获异常")
             return False
 
+    # 步骤2：检测原子服务端口连通性
     def test_b_server_port_connectivity(self, host, port):
-        '''
-        步骤2：检测原子服务端口连通性
-        '''
+
         try:
             # 创建套接字对象
             sock = socket.create_connection((host, port), timeout=5)
             # 连接成功
-            print(f"原子服务端口连接成功 {host}:{port}")
+            # print(f"原子服务端口连接成功 {host}:{port}")
             sock.close()
             return True
         except socket.error as e:
             # 连接失败
-            print(f"原子服务端口连接失败 {host}:{port}")
+            # print(f"原子服务端口连接失败 {host}:{port}")
             return False
-    def check_device_status(self, equid):
-        '''
-        步骤3：调用B_QueryFaciDevStat接口，获取原子服务返回的状态
-        '''
-        # 获取B_QueryFaciDevStat的响应报文
-        xml_string = RequestInterface().get_B_QueryFaciDevStat(equid)
-        # 实例化xml操作类
-        mx = ManageXml(xml_string=xml_string)
-        # 获取state标签的值
-        # 返回实际状态
-        return mx.root[1].find('.//srrc:state', mx.ns).text
 
-class Check_B_Server:
+    # 步骤3：调用B_QueryFaciDevStat接口，获取原子服务返回的状态
+    def check_device_status(self, mfid, equid, url):
 
-    def __int__(self):
-        pass
+        try:
+            # 获取B_QueryFaciDevStat的响应报文
+            xml_string = RequestInterface().get_B_QueryFaciDevStat(mfid, equid, url)
+            # 实例化xml操作类
+            mx = ManageXml(xml_string=xml_string)
+            # 获取state标签的值
+            # 返回实际状态
+            state = mx.root[1].find('.//srrc:state', mx.ns).text
 
-    def check_device_status(self, equid):
-        '''
-        检测原子服务中的state值来判断设备状态
-        state值异常或无此节点，判断原子服务异常
-        '''
-        # 获取B_QueryFaciDevStat的响应报文
-        xml_string = RequestInterface().get_B_QueryFaciDevStat(equid)
-        # 实例化xml操作类
-        mx = ManageXml(xml_string=xml_string)
-        # 获取state标签的值
-        # 返回实际状态
-        return mx.root[1].find('.//srrc:state', mx.ns).text
+            # 正常的返回状态定义
+            state_list = ["idle", "busy", "autotask"]
+
+            # 判断返回的state值，return对应的结果
+            if state in state_list:
+                return "正常"
+            elif state == 'failure':
+                return "故障"
+            else:
+                return False
+
+        except Exception as e:
+            return False
+
+    # 读取站点数据
+    # 按步骤调用，前序步骤不通过立即停止
+    def start_checking(self, host, port, mfid, equid, url):
+
+        #打开excel文件
+        excel_file_path = Frozen_Path().app_path() + "/data/excel/mfname&mfid&equid&url.xlsx"
+        workbook = openpyxl.load_workbook(excel_file_path)
+        #选工作表
+        sheet = workbook["shet1"]
+        #读取数据
+        for row in sheet.iter_rows():
+            print(row)
 
 
-class RequestInterface(object):
+
+
+        # if self.test_network_connectivity(host):
+        #     if self.test_b_server_port_connectivity(host, port):
+        #         state = self.check_device_status(mfid, equid, url)
+        #         if state == "正常":
+        #             return "正常"
+        #         elif state == "故障":
+        #             return "故障"
+        #         else:
+        #             return "B_QueryFaciDevStat接口调用异常"
+        #     else:
+        #         return "B_QueryFaciDevStat接口调用异常"
+        # else:
+        #     return "网络不通"
+
+
+class RequestInterface:
     '''
     接口调用通用方法类
     '''
@@ -127,7 +155,7 @@ class RequestInterface(object):
         # 设置header头
         self.headers['SOAPAction'] = 'B_QueryFaciDevStat'
         # 返回B_QueryFaciDevStat的响应报文
-        return self.re.post(url=url, data=xml_message, headers=self.headers).text
+        return self.re.post(url=url, data=xml_message, headers=self.headers, timeout=5).text
 
     # # 下面两个函数是设备操作服务调用的通用方法
     # # 获取url,request_message,ip,port
@@ -166,4 +194,9 @@ class RequestInterface(object):
 
 if __name__ == '__main__':
     # Test_Network_Connectivity().test_network_connectivity("192.168.11.1")
-    Test_Network_Connectivity().test_b_server_port_connectivity("192.168.13.33","8010")
+    # Test_Network_Connectivity().test_b_server_port_connectivity("192.168.13.33","8010")
+    # print(Test_Network_Connectivity().check_device_status("51010001110001", "17e4dec9-2d50-4167-a49f-8cf5fc95bd72",
+    #                                                       "http://192.168.13.33:8010/51010001110001/Demo/B_QueryFaciDevStat"))
+
+    print(Test_Network_Connectivity().start_checking("192.168.13.33","8010","51010001110001", "17e4dec9-2d50-4167-a49f-8cf5fc95bd72",
+                                                          "http://192.168.13.33:8010/51010001110001/Demo/B_QueryFaciDevStat"))
