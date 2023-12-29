@@ -3,10 +3,11 @@
 @Date 2023/7/5 13:56
 '''
 import socket
+import time
+from datetime import datetime
 
 import openpyxl
 import requests
-from openpyxl import workbook
 from ping3 import ping
 
 from auto_test_b_server.main.component import Frozen_Path
@@ -87,33 +88,67 @@ class Test_Network_Connectivity:
 
     # 读取站点数据
     # 按步骤调用，前序步骤不通过立即停止
-    def start_checking(self, host, port, mfid, equid, url):
+    def start_checking(self, ):
 
-        #打开excel文件
+        # 读取测试数据
         excel_file_path = Frozen_Path().app_path() + "/data/excel/mfname&mfid&equid&url.xlsx"
         workbook = openpyxl.load_workbook(excel_file_path)
-        #选工作表
-        sheet = workbook["shet1"]
-        #读取数据
-        for row in sheet.iter_rows():
-            print(row)
+        # 选工作表
+        sheet = workbook.active
+        # 定义测试结果的list
+        result_list = []
+        # 读取数据
+        # 从第一行读取到最后一行，取每一列的数据
+        for row in sheet.iter_rows(min_row=2, max_row=sheet.max_row, min_col=1, max_col=5, values_only=True):
+            # 处理数据，生成需要的字段
+            mf_name = row[0]
+            equid = row[1]
+            url = row[2]
+            host = row[2].split("/")[2].split(":")[0]
+            port = row[2].split("/")[2].split(":")[1]
+            mfid = row[2].split("/")[3]
+            area = row[3]
+            integrated_manufacturer = row[4]
 
+            # 按照步骤依次判断网络-原子服务软件存活-原子服务状态返回
+            if self.test_network_connectivity(host):
+                if self.test_b_server_port_connectivity(host, port):
+                    state = self.check_device_status(mfid, equid, url)
+                    if state == "正常":
+                        result = "正常"
+                    elif state == "故障":
+                        result = "故障"
+                    else:
+                        result = "B_QueryFaciDevStat接口调用异常"
+                else:
+                    result = "B_QueryFaciDevStat接口调用异常"
+            else:
+                result = "网络不通"
 
+            # 将测试结果追加到list中，用于写入测试报表
+            result_list.append([area, mf_name, mfid, integrated_manufacturer, equid, result])
 
+        # 将测试结果写入excel表
+        work_book_result = openpyxl.Workbook()
+        sheet_result = work_book_result.active
 
-        # if self.test_network_connectivity(host):
-        #     if self.test_b_server_port_connectivity(host, port):
-        #         state = self.check_device_status(mfid, equid, url)
-        #         if state == "正常":
-        #             return "正常"
-        #         elif state == "故障":
-        #             return "故障"
-        #         else:
-        #             return "B_QueryFaciDevStat接口调用异常"
-        #     else:
-        #         return "B_QueryFaciDevStat接口调用异常"
-        # else:
-        #     return "网络不通"
+        # 生成表头
+        title_row = ["地区", "监测站名称", "MFID", "集成厂家", "设备id", "测试结果"]
+        # 写入表头
+        sheet_result.append(title_row)
+        # 循环写入测试数据，生成测试报表
+        for row in result_list:
+            sheet_result.append(row)
+
+        # 获取时间来作为表名
+        # 获取当前时间
+        current_time = datetime.now()
+        # 格式化时间
+        formatted_time = current_time.strftime("%Y-%m-%d")
+        #获取时间戳
+        timestamp_integer = int(time.time())
+        # 保存测试报表
+        work_book_result.save(Frozen_Path().app_path() + f"/data/excel/{formatted_time}_{timestamp_integer}.xlsx")
 
 
 class RequestInterface:
@@ -198,5 +233,4 @@ if __name__ == '__main__':
     # print(Test_Network_Connectivity().check_device_status("51010001110001", "17e4dec9-2d50-4167-a49f-8cf5fc95bd72",
     #                                                       "http://192.168.13.33:8010/51010001110001/Demo/B_QueryFaciDevStat"))
 
-    print(Test_Network_Connectivity().start_checking("192.168.13.33","8010","51010001110001", "17e4dec9-2d50-4167-a49f-8cf5fc95bd72",
-                                                          "http://192.168.13.33:8010/51010001110001/Demo/B_QueryFaciDevStat"))
+    Test_Network_Connectivity().start_checking()
