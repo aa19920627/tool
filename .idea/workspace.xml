@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c54b3b5-fcd3-455b-8ac9-0c64150daaae" name="Default Changelist" comment="">
+    <list default="true" id="4c54b3b5-fcd3-455b-8ac9-0c64150daaae" name="Default Changelist" comment="原子服务巡检工具，代码编写完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hj/auto_test_b_server/data/excel/mfname&amp;mfid&amp;equid&amp;url.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/hj/auto_test_b_server/data/excel/mfname&amp;mfid&amp;equid&amp;url.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hj/auto_test_b_server/main/auto_task.py" beforeDir="false" afterPath="$PROJECT_DIR$/hj/auto_test_b_server/main/auto_task.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +28,12 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -143,10 +151,32 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/work/python/tool/hj&quot;
+    &quot;last_opened_file_path&quot;: &quot;D:/work/python/tool&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.auto_task">
+    <configuration name="auto_task" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="tool" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hj/auto_test_b_server/main" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hj/auto_test_b_server/main/auto_task.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="create_ability_xml" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="tool" />
       <option name="ENV_FILES" value="" />
@@ -194,6 +224,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.auto_task" />
         <item itemvalue="Python.create_ability_xml" />
       </list>
     </recent_temporary>
@@ -225,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1608885924724</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="原子服务巡检工具，代码编写完成">
+      <option name="closed" value="true" />
+      <created>1703841456086</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1703841456086</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -262,7 +301,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="上传巡检工具代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="上传巡检工具代码" />
+    <MESSAGE value="原子服务巡检工具，代码编写完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="原子服务巡检工具，代码编写完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

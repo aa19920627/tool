@@ -5,11 +5,9 @@
 import socket
 import time
 from datetime import datetime
-
 import openpyxl
 import requests
 from ping3 import ping
-
 from auto_test_b_server.main.component import Frozen_Path
 from auto_test_b_server.main.manage_xml import ManageXml
 
@@ -88,21 +86,22 @@ class Test_Network_Connectivity:
 
     # 读取站点数据
     # 按步骤调用，前序步骤不通过立即停止
-    def start_checking(self, ):
+    def start_checking(self, excel_file_path):
 
         # 读取测试数据
-        excel_file_path = Frozen_Path().app_path() + "/data/excel/mfname&mfid&equid&url.xlsx"
+        # excel_file_path = Frozen_Path().app_path() + "/data/excel/mfname&mfid&equid&url.xlsx"
         workbook = openpyxl.load_workbook(excel_file_path)
         # 选工作表
         sheet = workbook.active
-        # 定义测试结果的list
-        result_list = []
+        # 定义测试结果的list，添加表头
+        result_list = [
+            ["地区", "监测站名称", "MFID", "原子服务集成厂家", "设备ID", "原子服务部署IP", "测试结果", "原子服务地址"]]
         # 读取数据
         # 从第一行读取到最后一行，取每一列的数据
         for row in sheet.iter_rows(min_row=2, max_row=sheet.max_row, min_col=1, max_col=5, values_only=True):
             # 处理数据，生成需要的字段
             mf_name = row[0]
-            equid = row[1]
+            equid = row[1].strip()  #去空格，容错
             url = row[2]
             host = row[2].split("/")[2].split(":")[0]
             port = row[2].split("/")[2].split(":")[1]
@@ -126,18 +125,18 @@ class Test_Network_Connectivity:
                 result = "网络不通"
 
             # 将测试结果追加到list中，用于写入测试报表
-            result_list.append([area, mf_name, mfid, integrated_manufacturer, equid, result])
+            result_list.append([area, mf_name, mfid, integrated_manufacturer, equid, host, result, url])
+
+            # 手动设置每列的宽度，打印内容对齐
+            print(f"{mf_name:<15}{result}")
 
         # 将测试结果写入excel表
         work_book_result = openpyxl.Workbook()
+        # 获取活跃的工作簿
         sheet_result = work_book_result.active
 
-        # 生成表头
-        title_row = ["地区", "监测站名称", "MFID", "集成厂家", "设备id", "测试结果"]
-        # 写入表头
-        sheet_result.append(title_row)
         # 循环写入测试数据，生成测试报表
-        for row in result_list:
+        for i, row in enumerate(result_list, start=1):
             sheet_result.append(row)
 
         # 获取时间来作为表名
@@ -145,10 +144,24 @@ class Test_Network_Connectivity:
         current_time = datetime.now()
         # 格式化时间
         formatted_time = current_time.strftime("%Y-%m-%d")
-        #获取时间戳
+        # 获取时间戳
         timestamp_integer = int(time.time())
+        # 获取测试结果表的路径
+        result_path = Frozen_Path().app_path() + f"/data/excel/{formatted_time}_{timestamp_integer}.xlsx"
         # 保存测试报表
-        work_book_result.save(Frozen_Path().app_path() + f"/data/excel/{formatted_time}_{timestamp_integer}.xlsx")
+        work_book_result.save(result_path)
+        # 完成测试，测试结果路径输出
+        print("已完成测试，测试报表路径： %s" % result_path)
+
+    # 写入excel数据时，自适应列宽和行高
+    # def write_row(self, sheet, data, row_number):
+    #     for col_number, value in enumerate(data, start=1):
+    #         cell = sheet.cell(row=row_number, column=col_number, value=value)
+    #         # 自动换行
+    #         # cell.alignment = Alignment(wrap_text=True)
+    #         # 自适应列宽
+    #         sheet.column_dimensions[cell.column_letter].width = max(sheet.column_dimensions[cell.column_letter].width,
+    #                                                                 len(str(value)))
 
 
 class RequestInterface:
@@ -233,4 +246,6 @@ if __name__ == '__main__':
     # print(Test_Network_Connectivity().check_device_status("51010001110001", "17e4dec9-2d50-4167-a49f-8cf5fc95bd72",
     #                                                       "http://192.168.13.33:8010/51010001110001/Demo/B_QueryFaciDevStat"))
 
-    Test_Network_Connectivity().start_checking()
+    # 读取测试数据
+    excel_file_path = Frozen_Path().app_path() + "/data/excel/mfname&mfid&equid&url.xlsx"
+    Test_Network_Connectivity().start_checking(excel_file_path)
