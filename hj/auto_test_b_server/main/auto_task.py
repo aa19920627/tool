@@ -5,6 +5,7 @@
 import socket
 import time
 from datetime import datetime
+
 import openpyxl
 import requests
 from ping3 import ping
@@ -100,14 +101,14 @@ class Test_Network_Connectivity:
         # 从第一行读取到最后一行，取每一列的数据
         for row in sheet.iter_rows(min_row=2, max_row=sheet.max_row, min_col=1, max_col=5, values_only=True):
             # 处理数据，生成需要的字段
-            mf_name = row[0]
-            equid = row[1].strip()  #去空格，容错
-            url = row[2]
-            host = row[2].split("/")[2].split(":")[0]
-            port = row[2].split("/")[2].split(":")[1]
-            mfid = row[2].split("/")[3]
-            area = row[3]
-            integrated_manufacturer = row[4]
+            mf_name = row[0].strip()
+            equid = row[1].strip()  # 去空格，容错
+            url = row[2].strip()
+            host = row[2].split("/")[2].split(":")[0].strip()
+            port = row[2].split("/")[2].split(":")[1].strip()
+            mfid = row[2].split("/")[3].strip()
+            area = row[3].strip()
+            integrated_manufacturer = row[4].strip()
 
             # 按照步骤依次判断网络-原子服务软件存活-原子服务状态返回
             if self.test_network_connectivity(host):
