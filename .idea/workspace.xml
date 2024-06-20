@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c54b3b5-fcd3-455b-8ac9-0c64150daaae" name="Default Changelist" comment="原子服务巡检工具，代码编写完成">
+      <change afterPath="$PROJECT_DIR$/hj/test_tool/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/test_tool/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/test_tool/component/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/test_tool/component/send_request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/test_tool/main/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hj/test_tool/main/get_ability.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hj/auto_test_b_server/data/excel/mfname&amp;mfid&amp;equid&amp;url.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/hj/auto_test_b_server/data/excel/mfname&amp;mfid&amp;equid&amp;url.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hj/auto_test_b_server/main/auto_task.py" beforeDir="false" afterPath="$PROJECT_DIR$/hj/auto_test_b_server/main/auto_task.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +30,13 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
@@ -54,6 +65,9 @@
     <option name="height" value="1000" />
   </component>
   <component name="ProjectId" id="2aCfN0Fj1jMwy7PWWn09XNPhne3" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -146,14 +160,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/work/python/tool&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "D:/work/python/localized_automation"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.auto_task">
     <configuration name="auto_task" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tool" />

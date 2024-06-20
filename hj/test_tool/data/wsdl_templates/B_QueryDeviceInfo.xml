@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:srrc="http://www.srrc.org.cn">
+   {%include 'Header.xml'%}
+   <soapenv:Body>
+      <srrc:requestbody>
+         <!--Optional:-->
+         <srrc:mfid>{{mfid}}</srrc:mfid>
+         <!--Optional:-->
+         <srrc:equid>{{equid}}</srrc:equid>
+      </srrc:requestbody>
+   </soapenv:Body>
+</soapenv:Envelope>
