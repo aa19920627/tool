@@ -34,4 +34,11 @@ class Build_Xml:
 
         return output
 
+    #构建设备操作服务模板
+    def build_equipment_operation_service(self,data):
+        # 加载模板
+        template_QueryDeviceinfo = self.env.get_template("equipment_operation_service.xml")
+        # 渲染模板
+        output = template_QueryDeviceinfo.render()
+
 
