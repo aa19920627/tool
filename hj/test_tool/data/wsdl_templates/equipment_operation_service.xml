@@ -1,16 +1,16 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:srrc="http://www.srrc.org.cn">
-   {%include 'Header.xml'%}
+    {%include 'Header.xml'%}
     <soapenv:Body>
         <srrc:requestbody>
             <srrc:appid>{{appid|default('000000-01-0001')}}</srrc:appid>
             <srrc:userid>{{userid|default('00000001')}}</srrc:userid>
             <srrc:mfid>{{mfid}}</srrc:mfid>
             <srrc:equid>{{equid}}</srrc:equid>
-            <srrc:feature>B_SglFreqMeas</srrc:feature>
+            <srrc:feature>{{feature}}</srrc:feature>
             <!--Optional:-->
-            <srrc:executetime>{{executetime}}</srrc:executetime>
+            <srrc:executetime>{{executetime|default('5')}}</srrc:executetime>
             <!--Optional:-->
-            <srrc:priority>{{priority}}</srrc:priority>
+            <srrc:priority>{{priority|default('1')}}</srrc:priority>
             <srrc:equpara>
                 <srrc:items>
                     {% for item in items %}
@@ -21,16 +21,14 @@
                     {% endfor %}
                 </srrc:items>
             </srrc:equpara>
-            <srrc:outputchannels>
-                <!--1 or more repetitions:-->
-                <srrc:outputchannel>
-                    <srrc:mode>sink</srrc:mode>
-                    <srrc:datachannel>stream</srrc:datachannel>
-                    <srrc:host>192.168.13.6</srrc:host>
-                    <srrc:port>60012</srrc:port>
-                    <srrc:stc>123456</srrc:stc>
-                </srrc:outputchannel>
-            </srrc:outputchannels>
+            <!--1 or more repetitions:-->
+            <srrc:outputchannel>
+                <srrc:mode>sink</srrc:mode>
+                <srrc:datachannel>stream</srrc:datachannel>
+                <srrc:host>{{host}}</srrc:host>
+                <srrc:port>{{port}}</srrc:port>
+                <srrc:stc>{{stc|default('1234')}}</srrc:stc>
+            </srrc:outputchannel>
         </srrc:requestbody>
     </soapenv:Body>
 </soapenv:Envelope>

@@ -18,12 +18,12 @@ class Get_Deviceinfo:
         self.url = url
         self.mfid = mfid
         self.equid = equid
+        self.bx = Build_Xml(self.mfid, self.equid)
 
     # 调用接口，返回deviceinfo报文
     def get_rse(self):
         # 构建报文
-        bx = Build_Xml(self.mfid, self.equid)
-        xml_data = bx.build_B_QueryDeviceInfo()
+        xml_data = self.bx.build_B_QueryDeviceInfo()
 
         # 发送请求
         res = send_request(url=self.url, data=xml_data, soapaction="B_QueryDeviceInfo")
@@ -35,12 +35,13 @@ class Get_Deviceinfo:
 
     # 构建能力和参数字典
     def build_parameter_dictionary(self, xml_value):
-        get_name_defaultvalue(xml_value)
+        return get_name_defaultvalue(xml_value)
 
     # 根据能力字典，构建请求报文，输入：设备能力feature的参数集
-    def build_operation_ability_request_xml(self, feature):
-
-
+    def build_operation_ability_request_xml(self, data_list):
+        # 获取请求报文xml
+        xml_template = self.bx.build_equipment_operation_service(data_list)
+        return xml_template
 
 
 if __name__ == '__main__':
@@ -48,4 +49,11 @@ if __name__ == '__main__':
                         mfid="51010001110001",
                         equid="42a89870-5c14-4e97-82eb-83874519c360")
     xml_value = gd.get_rse()
-    gd.build_parameter_dictionary(xml_value)
+    feature_dict = gd.build_parameter_dictionary(xml_value)
+    request_xml = gd.build_operation_ability_request_xml(
+        ('B_SglFreqMeas', '192.168.13.6', '60003', feature_dict['B_SglFreqMeas']))
+
+    res=send_request(url="http://192.168.13.33:8010/51010001110001/virtual/B_SglFreqMeas",
+                 soapaction='B_SglFreqMeas',
+                 data=request_xml)
+    print(formatting_xml(res.text))

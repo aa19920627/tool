@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic URL to Dropdown</title>
+    <style>
+        body {
+            background-color: #0D0D0D;
+            font-family: 'Arial', sans-serif;
+            color: #00FFF6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #1C1C1C;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            width: 400px;
+        }
+
+        h1 {
+            color: #00FFF6;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        #url-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            background-color: #2A2A2A;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            color: #00FFF6;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+
+        #url-input:focus {
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+
+        #generate-button {
+            background-color: #00FFF6;
+            color: #0D0D0D;
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #generate-button:hover {
+            background-color: #009E99;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+
+        select {
+            width: 100%;
+            padding: 15px;
+            background-color: #2A2A2A;
+            border: none;
+            border-radius: 5px;
+            color: #00FFF6;
+            font-size: 16px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        select:hover, select:focus {
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); }
+            100% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); }
+        }
+
+        .container {
+            animation: glow 2s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Generate Dropdown</h1>
+        <input type="text" id="url-input" placeholder="https://example.com">
+        <button id="generate-button">Generate</button>
+
+        <select id="result-dropdown">
+            <option value="">-- Select an item --</option>
+        </select>
+    </div>
+
+    <script>
+        document.getElementById('generate-button').addEventListener('click', async () => {
+            const url = document.getElementById('url-input').value;
+
+            if (!url) {
+                alert('Please enter a valid URL');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/generate-list', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ url })
+                });
+
+                const data = await response.json();
+                const dropdown = document.getElementById('result-dropdown');
+                dropdown.innerHTML = '<option value="">-- Select an item --</option>';
+
+                if (data && data.items) {
+                    data.items.forEach(item => {
+                        const option = document.createElement('option');
+                        option.textContent = item;
+                        option.value = item;
+                        dropdown.appendChild(option);
+                    });
+                } else {
+                    alert('No items returned from API');
+                }
+
+            } catch (error) {
+                console.error('Error fetching data from API:', error);
+                alert('An error occurred. Please check the console for more details.');
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+{
+  'B_SglFreqMeas': {
+    'frequency': (
+    '中心频率',
+    '101700000'
+    ),
+    'ifbw': (
+    '滤波带宽',
+    '150000'
+    ),
+    'demodfreq': (
+    '解调中心频率',
+    '101700000'
+    ),
+    'demodband': (
+    '解调带宽',
+    '150000'
+    ),
+    'arbw': (
+    '自动频谱分辨率带宽',
+    'ON'
+    ),
+    'rbw': (
+    '频谱分辨率带宽',
+    '97.65625'
+    ),
+    'detector': (
+    '检波方式',
+    'fast'
+    ),
+    'demodmode': (
+    '解调方式',
+    'FM'
+    ),
+    'rfmode': (
+    '射频模式',
+    'NORMal'
+    ),
+    'rfattenuation': (
+    '衰减控制',
+    'ON'
+    ),
+    'rfattvalue': (
+    '射频衰减',
+    '0'
+    ),
+    'ifattvalue': (
+    '中频衰减',
+    '0'
+    ),
+    'measuretime': (
+    '测量时间',
+    '0'
+    ),
+    'squelchmode': (
+    '静噪模式开关',
+    'OFF'
+    ),
+    'squelchthreshold': (
+    '静噪门限值',
+    '-20'
+    ),
+    'filterwindow': (
+    'FFT窗函数',
+    'HANNing'
+    ),
+    'samplingpoint': (
+    '采样点数',
+    '2048'
+    ),
+    'antennagain': (
+    '天线增益',
+    'OFF'
+    ),
+    'polarization': (
+    '极化方式',
+    'vertical'
+    ),
+    'spectrumswitch': (
+    '频谱开关',
+    'ON'
+    ),
+    'IQSwitch': (
+    'IQ开关',
+    'SHORT'
+    ),
+    'ITUSwitch': (
+    'ITU开关',
+    'ON'
+    ),
+    'audiotype': (
+    '声音开关',
+    'OFF'
+    ),
+    'fieldstrength': (
+    '场强开关',
+    'OFF'
+    )
+  },
+  'B_SglFreqDF': {
+    'frequency': (
+    '中心频率',
+    '101700000'
+    ),
+    'ifbw': (
+    '滤波带宽',
+    '150000'
+    ),
+    'arbw': (
+    '自动频谱分辨率带宽',
+    'ON'
+    ),
+    'rbw': (
+    '频谱分辨率带宽',
+    '97.65625'
+    ),
+    'demodmode': (
+    '解调方式',
+    'FM'
+    ),
+    'detector': (
+    '检波方式',
+    'fast'
+    ),
+    'rfmode': (
+    '射频模式',
+    'NORMal'
+    ),
+    'rfattvalue': (
+    '射频衰减',
+    '0'
+    ),
+    'ifattvalue': (
+    '中频衰减',
+    '0'
+    ),
+    'filterwindow': (
+    'FFT窗函数',
+    'HANNing'
+    ),
+    'dfmode': (
+    '测向模式',
+    'NORMal'
+    ),
+    'dfampthreshold': (
+    '门限电平',
+    '0'
+    ),
+    'squelchmode': (
+    '静噪模式开关',
+    'OFF'
+    ),
+    'squelchthreshold': (
+    '静噪门限值',
+    '-20'
+    ),
+    'dfsystem': (
+    '测向体制',
+    'CORRelation'
+    ),
+    'antennagain': (
+    '天线增益',
+    'OFF'
+    ),
+    'polarization': (
+    '极化方式',
+    'vertical'
+    ),
+    'spectrumswitch': (
+    '频谱开关',
+    'ON'
+    ),
+    'audiotype': (
+    '声音开关',
+    'OFF'
+    )
+  },
+  'B_PScan': {
+    'startfreq': (
+    '开始频率',
+    '87000000'
+    ),
+    'stopfreq': (
+    '结束频率',
+    '108000000'
+    ),
+    'step': (
+    '频率步进',
+    '25000'
+    ),
+    'detector': (
+    '检波方式',
+    'fast'
+    ),
+    'rfmode': (
+    '射频模式',
+    'NORMal'
+    ),
+    'rfattenuation': (
+    '衰减控制',
+    'ON'
+    ),
+    'rfattvalue': (
+    '射频衰减',
+    '0'
+    ),
+    'ifattvalue': (
+    '中频衰减',
+    '0'
+    ),
+    'measuretime': (
+    '测量时间',
+    '0'
+    ),
+    'filterwindow': (
+    'FFT窗函数',
+    'HANNing'
+    ),
+    'antennagain': (
+    '天线增益',
+    'OFF'
+    ),
+    'polarization': (
+    '极化方式',
+    'vertical'
+    ),
+    'fieldstrength': (
+    '场强开关',
+    'OFF'
+    )
+  },
+  'B_FScan': {
+    'startfreq': (
+    '开始频率',
+    '87000000'
+    ),
+    'stopfreq': (
+    '结束频率',
+    '108000000'
+    ),
+    'step': (
+    '频率步进',
+    '25000'
+    ),
+    'ifbw': (
+    '滤波带宽',
+    '150000'
+    ),
+    'detector': (
+    '检波方式',
+    'fast'
+    ),
+    'rfmode': (
+    '射频模式',
+    'NORMal'
+    ),
+    'rfattenuation': (
+    '衰减控制',
+    'ON'
+    ),
+    'rfattvalue': (
+    '射频衰减',
+    '0'
+    ),
+    'ifattvalue': (
+    '中频衰减',
+    '0'
+    ),
+    'measuretime': (
+    '测量时间',
+    '0'
+    ),
+    'filterwindow': (
+    'FFT窗函数',
+    'HANNing'
+    ),
+    'antennagain': (
+    '天线增益',
+    'OFF'
+    ),
+    'polarization': (
+    '极化方式',
+    'vertical'
+    ),
+    'fieldstrength': (
+    '场强开关',
+    'OFF'
+    )
+  },
+  'B_MScan': {
+    'frequency': (
+    '中心频率',
+    '101700000'
+    ),
+    'ifbw': (
+    '滤波带宽',
+    '150000'
+    ),
+    'demodmode': (
+    '解调方式',
+    'FM'
+    ),
+    'rfmode': (
+    '射频模式',
+    'NORMal'
+    ),
+    'rfattenuation': (
+    '衰减控制',
+    'ON'
+    ),
+    'rfattvalue': (
+    '射频衰减',
+    '0'
+    ),
+    'ifattvalue': (
+    '中频衰减',
+    '0'
+    ),
+    'filterwindow': (
+    'FFT窗函数',
+    'HANNing'
+    ),
+    'antennagain': (
+    '天线增益',
+    'OFF'
+    ),
+    'polarization': (
+    '极化方式',
+    'vertical'
+    ),
+    'fieldstrength': (
+    '场强开关',
+    'OFF'
+    )
+  },
+  'B_MScanDF': {
+    'frequency': (
+    '中心频率',
+    '101700000'
+    ),
+    'ifbw': (
+    '滤波带宽',
+    '150000'
+    ),
+    'arbw': (
+    '自动频谱分辨率带宽',
+    'ON'
+    ),
+    'rbw': (
+    '频谱分辨率带宽',
+    '97.65625'
+    ),
+    'demodmode': (
+    '解调方式',
+    'FM'
+    ),
+    'detector': (
+    '检波方式',
+    'fast'
+    ),
+    'rfmode': (
+    '射频模式',
+    'NORMal'
+    ),
+    'rfattvalue': (
+    '射频衰减',
+    '0'
+    ),
+    'ifattvalue': (
+    '中频衰减',
+    '0'
+    ),
+    'filterwindow': (
+    'FFT窗函数',
+    'HANNing'
+    ),
+    'dfmode': (
+    '测向模式',
+    'NORMal'
+    ),
+    'dfampthreshold': (
+    '门限电平',
+    '0'
+    ),
+    'squelchmode': (
+    '静噪模式开关',
+    'OFF'
+    ),
+    'squelchthreshold': (
+    '静噪门限值',
+    '-20'
+    ),
+    'dfsystem': (
+    '测向体制',
+    'CORRelation'
+    ),
+    'antennagain': (
+    '天线增益',
+    'OFF'
+    ),
+    'polarization': (
+    '极化方式',
+    'vertical'
+    ),
+    'spectrumswitch': (
+    '频谱开关',
+    'ON'
+    ),
+    'audiotype': (
+    '声音开关',
+    'OFF'
+    ),
+    'holdtime': (
+    '驻留时间',
+    '15'
+    )
+  }
+}
