@@ -9,8 +9,9 @@ from datetime import datetime
 import openpyxl
 import requests
 from ping3 import ping
-from auto_test_b_server.main.component import Frozen_Path
-from auto_test_b_server.main.manage_xml import ManageXml
+
+from main.component import Frozen_Path
+from main.manage_xml import ManageXml
 
 '''
 自动检测原子服务状态，分为三个步骤：

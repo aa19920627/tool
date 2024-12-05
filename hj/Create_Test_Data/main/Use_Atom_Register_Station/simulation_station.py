@@ -4,6 +4,8 @@
 @Date    : 2021/8/17 11:22
 @Author  : 洪建
 """
+from random import randint
+
 from common.Atom_Register_Data import Atom_Register_Data
 from main.Use_Atom_Register_Station.structure_xml import Structure_Xml
 
@@ -18,13 +20,12 @@ class simulation_station:
     def __init__(self):
         # 定义一些基本配置
 
-        # 每个监测站下设备的数量范围
-        self.equ_max_num = 1
-        self.equ_min_num = 1
+        # 每个监测站下设备的数量
+        self.equ_num = 3
 
         # DeviceIp和TcpServerIp，绿色serverIP和tcp连接的ip
         self.DeviceIp = '127.0.0.1'
-        self.TcpServerIp = '192.168.11.131'
+        self.TcpServerIp = '192.168.0.72'
 
         # 绿色server连接端口
         self.DevicePort = '20010'
@@ -37,32 +38,19 @@ class simulation_station:
 
         # 原子服务配置中TcpServerPort的初始值，每次新增一个站点加1
         self.TcpServerPort = 30115
-
+        # 设备能力列表
+        self.task_ability = 'FIXFQ;FSCAN;MSCAN;WDDF;SCANDF;FIXDF'
         # 设备编号后缀的初始值
-        self.equip_num = 50
+        self.equip_num = 1
 
         # 设备名称的基础名
-        self.equip_name_base = 'Demo'
+        self.equip_name_base = 'demo'
 
         # 区域码和区域名称
-        self.area_list = [('150100', '呼和浩特市'), ('150200', '包头市'), ('150300', '乌海市'), ('150400', '赤峰市'),
-                          ('150500', '通辽市'),
-                          ('150600', '鄂尔多斯市'), ('150700', '呼伦贝尔市'), ('152200', '兴安盟'), ('152500', '锡林郭勒盟'),
-                          ('152600', '乌兰察布市'), ('152800', '巴彦淖尔市'), ('152900', '阿拉善盟')]
+        self.area_list = [('510100', '成都市')]
 
         # 区域内的经纬度(定义的地市所属监测站生成地理位置的范围，避免监测站建立到区域外)
-        self.longitude_latitude = {'150100': (111.813, 111.242, 40.868, 40.359),
-                                   '150200': (110.641, 109.778, 42.161, 41.531),
-                                   '150300': (106.918, 106.802, 39.611, 39.312),
-                                   '150400': (119.960, 117.960, 43.827, 42.691),
-                                   '150500': (122.910, 121.262, 44.115, 43.105),
-                                   '150600': (109.462, 107.353, 40.275, 39.168),
-                                   '150700': (124.025, 120.223, 51.007, 49.031),
-                                   '152200': (122.569, 120.207, 47.006, 46.138),
-                                   '152500': (116.010, 112.429, 44.453, 42.517),
-                                   '152600': (113.593, 112.264, 41.849, 40.726),
-                                   '152800': (109.045, 106.287, 41.964, 41.067),
-                                   '152900': (104.936, 100.904, 41.430, 39.661)}
+        self.longitude_latitude = {'510100': (103.8131, 104.2421, 30.8681, 31.3591)}
 
         # 初始化Atom_Register_Data类
         self.ard = Atom_Register_Data(self.area_list, self.longitude_latitude)
@@ -77,14 +65,12 @@ class simulation_station:
 
         longitude, latitude = self.ard.longitude_latitude_random(code)
 
-        equip_uuid = self.ard.equipment_random()
-
-        return mfid, mfname, longitude, latitude, equip_uuid
+        return mfid, mfname, longitude, latitude
 
     # 生成原子服务批量注册的xml文件
     def generate_xml(self, num):
         for i in range(num):
-            mfid, mfname, longitude, latitude, equip_uuid = self.generate_data()
+            mfid, mfname, longitude, latitude = self.generate_data()
 
             self.sx.create_Mfids()
 
@@ -96,14 +82,19 @@ class simulation_station:
             self.sx.create_DevicePort(self.DevicePort)
             self.sx.create_TcpServerIp(self.TcpServerIp)
             self.sx.create_TcpServerPort(str(self.TcpServerPort))
+            self.sx.create_EmDeviceId(self.ard.equipment_random())
+            self.sx.create_TaskAbility(self.task_ability)
 
-            equip_name = self.equip_name_base + str(self.equip_num)
-            self.sx.create_DeviceItems(equip_uuid, equip_name, self.BServerPort)
+            # 随机监测站下的设备数量
+            for eqnum in range(self.equ_num):
+                equip_uuid = self.ard.equipment_random()
+                equip_name = self.equip_name_base + str(eqnum+1)
+                self.sx.create_DeviceItems(equip_uuid, equip_name, self.BServerPort)
+
 
             self.sx.append_Mfids()
 
-            # 设备名称的序号和tcp端口自增长
-            self.equip_num += 1
+            #tcp端口自增长
             self.TcpServerPort += 1
 
             # 打印注册信息

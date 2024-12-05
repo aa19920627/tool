@@ -1,13 +1,20 @@
 ## 测试工具集合
 
+## 目录
+
+* main：主程序代码
+  * inside_tool 测试组事务类工具
+    * statistical_performance 测试组绩效统计
+  * out_tool 测试工具
+    * b_server_test 原子服务测试工具
+* data：数据目录
+* component：公共组件
+* ui：界面
+* test_demo：demo代码
+## 工具说明
+
+### b_server_test(原子服务测试工具)
 * 通过deviceinfo接口获取原子服务所有能力，自动生成能力接口报文，一键测试
 * 预设M接口测试集，使用原子服务获取的能力直接测试
 * 支持调用一体化基础平台
 * 支持开通tcp收数，界面呈现数据（可能的解析功能）
-
-## 目录
-
-* main：主程序代码
-* data：数据目录
-* component:公共组件
-

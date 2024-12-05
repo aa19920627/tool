@@ -9,7 +9,7 @@ import sys
 
 from PyQt5 import QtWidgets
 
-from auto_test_b_server.main.application_program_interface import MainWindow
+from main.application_program_interface import MainWindow
 
 # 获取当前脚本所在目录
 script_dir = os.path.dirname(os.path.realpath(__file__))

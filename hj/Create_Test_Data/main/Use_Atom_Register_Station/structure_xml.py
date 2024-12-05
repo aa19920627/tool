@@ -90,7 +90,6 @@ class Structure_Xml:
     # 创建节点TcpServerIp-tcp连接ip
     # 传入ip
     def create_TcpServerIp(self, tcpServerIp):
-
         self.TcpServerIp = self.dom.createElement('TcpServerIp')
         self.TcpServerIp_value = self.dom.createTextNode(tcpServerIp)
 
@@ -107,6 +106,23 @@ class Structure_Xml:
         self.TcpServerPort.appendChild(self.TcpServerPort_value)
 
         self.Mfids.appendChild(self.TcpServerPort)
+
+    # 创建节点EmDeviceId，动环设备id
+    # 传入动环id
+    def create_EmDeviceId(self, emid):
+        self.EmDeviceId = self.dom.createElement('EmDeviceId')
+        self.EmDeviceId_value = self.dom.createTextNode(emid)
+
+        self.EmDeviceId.appendChild(self.EmDeviceId_value)
+        self.Mfids.appendChild(self.EmDeviceId)
+
+    # 创建节点TaskAbility，设备能力
+    # 传入能力字符串
+    def create_TaskAbility(self, taskAbility_str):
+        self.TaskAbility = self.dom.createElement('TaskAbility')
+        self.TaskAbility_value = self.dom.createTextNode(taskAbility_str)
+        self.TaskAbility.appendChild(self.TaskAbility_value)
+        self.Mfids.appendChild(self.TaskAbility)
 
     # 循环节点
     # 创建DeviceItems-设备信息

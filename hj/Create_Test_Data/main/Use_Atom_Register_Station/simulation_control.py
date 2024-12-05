@@ -4,6 +4,7 @@
 @Date    : 2021/8/18 15:40
 @Author  : 洪建
 """
+import time
 from xml.dom import minidom
 from common.faker_data import Faker_Data
 from common.get_token import Get_Token
@@ -87,7 +88,7 @@ class Simulation_Control:
 
         # print(names)
         for name in names:
-
+            time.sleep(0.1)
             mfid = name.getElementsByTagName('Mfid')[0].firstChild.nodeValue
             mfname = name.getElementsByTagName('MfidName')[0].firstChild.nodeValue
             longitude = name.getElementsByTagName('Longitude')[0].firstChild.nodeValue
@@ -108,4 +109,4 @@ if __name__ == '__main__':
     # print(mftype,fmskind,subMfid,areacode)
 
     sc = Simulation_Control()
-    sc.read_xml('20213519113526_DeviceRegister.xml','http://192.168.11.114:54000/facility/add')
+    sc.read_xml('20240219160229_DeviceRegister.xml','http://192.168.0.98:31134/facility/add')

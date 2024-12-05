@@ -3,15 +3,19 @@
 @Time ： 2024/6/20 11:37
 @Auth ： 洪建
 """
+import sys
+
 from component.build_xml import Build_Xml
 from component.common_component import formatting_xml, get_name_defaultvalue
 from component.send_request import send_request
 
 '''
 通过deviceinfo接口获取设备支持的所有能力，并根据能力值生成参数列表
+调用设备能力
 '''
 
 
+# 获取设备能力类
 class Get_Deviceinfo:
 
     def __init__(self, url, mfid, equid):
@@ -45,15 +49,16 @@ class Get_Deviceinfo:
 
 
 if __name__ == '__main__':
-    gd = Get_Deviceinfo(url="http://192.168.13.33:8010/51010001110001/virtual/B_QueryDeviceInfo",
-                        mfid="51010001110001",
-                        equid="42a89870-5c14-4e97-82eb-83874519c360")
-    xml_value = gd.get_rse()
-    feature_dict = gd.build_parameter_dictionary(xml_value)
-    request_xml = gd.build_operation_ability_request_xml(
-        ('B_SglFreqMeas', '192.168.13.6', '60003', feature_dict['B_SglFreqMeas']))
-
-    res=send_request(url="http://192.168.13.33:8010/51010001110001/virtual/B_SglFreqMeas",
-                 soapaction='B_SglFreqMeas',
-                 data=request_xml)
-    print(formatting_xml(res.text))
+    # gd = Get_Deviceinfo(url="http://192.168.13.33:8010/51010001110001/virtual/B_QueryDeviceInfo",
+    #                     mfid="51010001110001",
+    #                     equid="42a89870-5c14-4e97-82eb-83874519c360")
+    # xml_value = gd.get_rse()
+    # feature_dict = gd.build_parameter_dictionary(xml_value)
+    # request_xml = gd.build_operation_ability_request_xml(
+    #     ('B_SglFreqMeas', '192.168.13.6', '60003', feature_dict['B_SglFreqMeas']))
+    #
+    # res=send_request(url="http://192.168.13.33:8010/51010001110001/virtual/B_SglFreqMeas",
+    #              soapaction='B_SglFreqMeas',
+    #              data=request_xml)
+    # print(formatting_xml(res.text))
+    pass
