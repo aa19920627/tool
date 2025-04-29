@@ -8,8 +8,8 @@ import pandas as pd
 '''读取server日志中的ads-b数据，输出excel'''
 
 # 读取ads-b日志并写入excel
-file_path = './data/ads-b.log'
-excel_path = './data/ads-b.xlsx'
+file_path = 'data/ads-b.log'
+excel_path = 'data/ads-b.xlsx'
 log_data = []
 with open(file_path, 'r', encoding='GB2312') as f:
     for line_num, line in enumerate(f, 1):
