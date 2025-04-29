@@ -1,4 +1,5 @@
 # 导入必要的库
+import math
 from itertools import combinations
 
 import plotly.express as px
@@ -7,9 +8,10 @@ import pandas as pd
 import plotly.graph_objects as go
 from scipy.stats import gaussian_kde
 
+
 # 中垂线热力图类
 class HeatmapGenerator:
-    def __init__(self,aiport):
+    def __init__(self, aiport):
         self.path = "./data/华东机场干扰数据.xlsx"
         self.leng_km = 10  # 中垂线长度/公里
         # 读取干扰数据源
@@ -20,14 +22,26 @@ class HeatmapGenerator:
 
         # 用于计算中垂线交点的列表
         bisectors = []
-        # 计算中垂线交点，用于绘制热力图
-        for interference_data in self.interference_data_lit:
-            # 获取中垂线计算结果
-            lat_list, lon_list = self.calculate_point(interference_data[3], interference_data[4], interference_data[5],
-                                                      interference_data[6], self.leng_km)
+        # gps干扰轨迹起始经纬度
+        gps_list = []
 
+        # 计算每条轨迹线的长度，并获取中垂线的长度比例
+        for interference_data in self.interference_data_lit:
+            gps_list.append([(interference_data[3], interference_data[5]),(interference_data[4], interference_data[6])])
+
+        # 中垂线长度
+        gps_length_list = self.calculate_intersection_per(gps_list)
+
+        # 计算中垂线交点，用于绘制热力图
+        for interference_data in gps_length_list:
+            # 获取中垂线计算结果
+            lat_list, lon_list = self.calculate_point(interference_data[0][0][0], interference_data[0][1][0], interference_data[0][0][1],
+                                                      interference_data[0][1][1], interference_data[1])
+
+            # print(interference_data[0][0][0],interference_data[0][0][1])
             # 将用于计算中垂线交点的数据追加到列表中
             bisectors.append(((lat_list[0], lon_list[0]), (lat_list[1], lon_list[1])))
+
 
         # 计算中垂线交点
         pt_list = self.calculate_intersection_all_point(bisectors)
@@ -59,12 +73,13 @@ class HeatmapGenerator:
             lon='lon',  # 经度列名
             z='z',  # 热力值列名
             radius=15,  # 热力点半径
-            opacity=0.8,    #增加透明度
+            opacity=0.8,  # 增加透明度
             zoom=11,  # 初始缩放级别
             title='热力图',  # 图表标题
             mapbox_style="white-bg",  # 使用本地地图是需要此设置
             color_continuous_scale="Jet"  # 热力图色阶
         )
+
 
         # 动态更新半径（正确方式）
         self.fig.update_traces(
@@ -72,7 +87,7 @@ class HeatmapGenerator:
             selector={'type': 'densitymapbox'}
         )
         # 绘制异常轨迹线和中垂线
-        self.draw_line()
+        self.draw_line(gps_length_list)
 
         # 使用本地地图
         self.fig.update_layout(
@@ -96,7 +111,7 @@ class HeatmapGenerator:
         self.fig.write_html("heatmap.html", auto_open=True, config=dict(scrollZoom=True))
 
     # 读取干扰数据
-    def read_data(self,airport):
+    def read_data(self, airport):
         # 读取excel文件
         df = pd.read_excel(self.path, sheet_name='Sheet1')
 
@@ -119,21 +134,22 @@ class HeatmapGenerator:
         return self.interference_data_lit
 
     # 绘制干扰轨迹线和中垂线，并获取中垂线交点坐标
-    def draw_line(self):
+    def draw_line(self,gps_length_list):
 
-        for interference_data in self.interference_data_lit:
+        for interference_data in gps_length_list:
             # 绘制原始归纳绕轨迹线
             self.fig.add_trace(go.Scattermapbox(
                 mode="lines+markers",
-                lon=[interference_data[5], interference_data[6]],
-                lat=[interference_data[3], interference_data[4]],
+                lon=[interference_data[0][0][1], interference_data[0][1][1]],
+                lat=[interference_data[0][0][0], interference_data[0][1][0]],
                 marker={'color': 'red', 'size': 5},
                 line={'color': 'red', 'width': 1},
             ))
+
             # 绘制中垂线
             # 获取中垂线计算结果
-            lat_list, lon_list = self.calculate_point(interference_data[3], interference_data[4], interference_data[5],
-                                                      interference_data[6], self.leng_km)
+            lat_list, lon_list = self.calculate_point(interference_data[0][0][0], interference_data[0][1][0], interference_data[0][0][1],
+                                                      interference_data[0][1][1], interference_data[1])
             self.fig.add_trace(go.Scattermapbox(
                 mode="lines",
                 lon=lon_list,
@@ -227,7 +243,6 @@ class HeatmapGenerator:
             return (y1 + t1 * dy1, x1 + t1 * dx1)  # 转回(lat,lon)
         return None
 
-
     # 计算两两中垂线的交点
     def calculate_intersection_all_point(self, bisectors):
         """
@@ -254,6 +269,36 @@ class HeatmapGenerator:
                     intersections.append(pt)
         return intersections
 
+    # 按干扰轨迹线长度，计算均方根，计算中垂线比例，输出中垂线长度
+    def calculate_intersection_per(self, gps_list):
+
+        gps_line_list = []
+        # 计算干扰轨迹线长度
+        for gps_point in gps_list:
+            lat1, lon1 = gps_point[0]
+            lat2, lon2 = gps_point[1]
+            dx = (lon2 - lon1) * 111.32 * math.cos(math.radians((lat1 + lat2) / 2))
+            dy = (lat2 - lat1) * 110.574
+            gps_line = round(math.sqrt(dx ** 2 + dy ** 2), 2)
+            gps_line_list.append(gps_line)
+
+        # 计算中垂线比例，汇算中垂线实际长度
+        rms = round(np.sqrt(np.mean(np.square(gps_line_list))), 2)
+
+        # 计算每条中垂线的比例
+        perpendicular_lengths = []
+        for length in gps_line_list:
+            ratio = rms / length  # 比例系数
+            actual_length = round(ratio * self.leng_km, 2)
+            perpendicular_lengths.append(actual_length)
+            # print(f"轨迹线长度：{length}   中垂线长度：{actual_length}")
+
+        # 返回干扰轨迹线经纬度和中垂线长度列表
+        gps_length_list = [[gps, length] for gps, length in zip(gps_list, perpendicular_lengths)]
+
+
+        print(gps_length_list)
+        return gps_length_list
 
 if __name__ == '__main__':
     hg = HeatmapGenerator('济南遥墙机场')
