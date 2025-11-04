@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c54b3b5-fcd3-455b-8ac9-0c64150daaae" name="Default Changelist" comment="解析server的ADS-B日志，分析经纬度不变的问题">
-      <change afterPath="$PROJECT_DIR$/hj/signal_tool/Perpendicular_Bisector_Heatmap/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hj/signal_tool/Perpendicular_Bisector_Heatmap/demo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hj/signal_tool/Perpendicular_Bisector_Heatmap/gps_heatmap.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hj/signal_tool/Perpendicular_Bisector_Heatmap/map_flask.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hj/signal_tool/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hj/signal_tool/show.py" beforeDir="false" />
-    </list>
+    <list default="true" id="4c54b3b5-fcd3-455b-8ac9-0c64150daaae" name="Default Changelist" comment="解析server的ADS-B日志，分析经纬度不变的问题" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -184,7 +175,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "dev",
-    "last_opened_file_path": "D:/work/git/tool/hj/signal_tool/Perpendicular_Bisector_Heatmap",
+    "last_opened_file_path": "D:/git/tool/tool",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -351,8 +342,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-PY-243.23654.177" />
-        <option value="bundled-python-sdk-91d3a02ef49d-43b77aa2d136-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.23654.177" />
+        <option value="bundled-python-sdk-1bde30d8e611-7b97d883f26b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.25557.130" />
       </set>
     </attachedChunks>
   </component>

@@ -17,7 +17,7 @@ class Get_Token:
 
     def get_token(self):
 
-        token = {'test-key': '123',
+        token = {'demo-key': '123',
                  'token': Basic_data().token(),
                  'X-Requested-With': 'XMLHttpRequest'}
 
