@@ -191,6 +191,16 @@ import requests
 # print(titles)
 
 # 抓取二进制数据
-r = requests.get('https://scrape.center/favicon.ico')
-with open('favicon.ico', 'wb') as f:
-    f.write(r.content)
+# r = requests.get('https://scrape.center/favicon.ico')
+# with open('favicon.ico', 'wb') as f:
+#     f.write(r.content)
+
+# 响应
+r = requests.get('https://ssr1.scrape.center/')
+print(type(r.status_code),  r.status_code)
+print(type(r.headers), r.headers)
+print(type(r.cookies), r.cookies)
+print(type(r.url), r.url)
+print(type(r.history), r.history)
+
+exit() if not r.status_code == requests.codes.ok else print('Request Successfully')
