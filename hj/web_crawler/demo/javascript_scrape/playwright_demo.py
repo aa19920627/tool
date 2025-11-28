@@ -7,6 +7,7 @@
 
 """playwright库的示例"""
 import asyncio
+import re
 
 from playwright.async_api import async_playwright
 from playwright.sync_api import sync_playwright
@@ -52,17 +53,29 @@ from playwright.sync_api import sync_playwright
 
 # 事件监听
 # def on_response(response):
-# #     if '/api/movie/' in response.url and response.status == 200:
-# #         print(response.json())
-# #
-# #
-# # with sync_playwright() as p:
-# #     browser = p.chromium.launch(headless=False)
-# #     page = browser.new_page()
-# #     page.on('response', on_response)
-# #     page.goto('https://spa6.scrape.center/')
-# #     page.wait_for_load_state('networkidle')
-# #     browser.close()
+#     if '/api/movie/' in response.url and response.status == 200:
+#         print(response.json())
+#
+#
+# with sync_playwright() as p:
+#     browser = p.chromium.launch(headless=False)
+#     page = browser.new_page()
+#     page.on('response', on_response)
+#     page.goto('https://spa6.scrape.center/')
+#     page.wait_for_load_state('networkidle')
+#     browser.close()
 
 
-#获取页面源代码
+#网络劫持
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=False)
+    page = browser.new_page()
+
+    def cancel_request(route,request):
+        route.abort()
+
+    page.route(re.compile(r"(\.png)|(\.jpg)"),cancel_request)
+    page.goto("https://spa6.scrape.center/")
+    page.wait_for_load_state("networkidle")
+    page.screenshot(path = "no_picture.png")
+    browser.close()
