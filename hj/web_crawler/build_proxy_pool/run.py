@@ -5,6 +5,8 @@
 # @Time : 2026/1/9 11:50
 import argparse
 
+from web_crawler.build_proxy_pool.proxypool.scheduler import Scheduler
+
 # 创建命令行参数解析器
 parser = argparse.ArgumentParser(description='ProxyPool')
 # 添加命令行参数
