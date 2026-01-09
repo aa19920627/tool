@@ -44,6 +44,16 @@ CYCLE_TESTER = env.int('CYCLE_TESTER', 20)
 # 定期从代理发布网站获取代理源，每CYCLE_GETTER秒获取一次
 CYCLE_GETTER = env.int('CYCLE_GETTER', 20)
 
+#tester调度器的相关配置
+TEST_URL = env.str('TEST_URL', 'http://www.baidu.com')
+TEST_TIMEOUT = env.int('TEST_TIMEOUT', 10)
+TEST_BATCH = env.int('TEST_BATCH', 20)
+# 是否进行匿名性测试
+TEST_ANONYMOUS = env.bool('TEST_ANONYMOUS', True)
+# 访问成功的有效状态码
+TEST_VALID_STATUS = env.list('TEST_VALID_STATUS', [200, 206, 302])
+# 是否将测试通过的代理设置为最大分数
+TEST_DONT_SET_MAX_SCORE = env.bool('TEST_DONT_SET_MAX_SCORE', False)
 
 
 # API 服务定义和配置
