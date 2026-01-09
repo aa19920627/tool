@@ -296,9 +296,11 @@ from requests_oauthlib import OAuth1
 
 # Client对象
 
-url = 'https://httpbin.org/headers'
-headers = {'User-Agent': 'ma-app/0.0.1'}
-with httpx.Client(headers=headers) as client:
-    r = client.get(url)
-    print(r.json()['headers']['User-Agent'])
+# url = 'https://httpbin.org/headers'
+# headers = {'User-Agent': 'ma-app/0.0.1'}
+# with httpx.Client(headers=headers) as client:
+#     r = client.get(url)
+#     print(r.json()['headers']['User-Agent'])
 
+resp = requests.get("https://github.com/CharlesPikachu/freeproxy/blob/master/proxies.json")
+print(resp.text)
