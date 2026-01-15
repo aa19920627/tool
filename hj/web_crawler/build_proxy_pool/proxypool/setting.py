@@ -26,6 +26,31 @@ APP_PROD_METHOD_MEINHELD = 'meinheld'  # 使用 meinheld（基于picoev的高性
 # 如果没有设置，则默认使用 gevent，并将值转换为小写
 APP_PROD_METHOD = env.str('APP_PROD_METHOD', APP_PROD_METHOD_GEVENT).lower()
 
+# Redis相关设置
+# Redis主机地址
+REDIS_HOST = env.str('PROXYPOOL_REDIS_HOST',
+                     env.str('REDIS_HOST', '127.0.0.1'))
+# Redis端口号
+REDIS_PORT = env.int('PROXYPOOL_REDIS_PORT', env.int('REDIS_PORT', 6379))
+# Redis密码，如果没有密码，设置为None
+REDIS_PASSWORD = env.str('PROXYPOOL_REDIS_PASSWORD',
+                         env.str('REDIS_PASSWORD', None))
+# Redis数据库，如果没有特别选择，设置为0
+REDIS_DB = env.int('PROXYPOOL_REDIS_DB', env.int('REDIS_DB', 0))
+# Redis连接字符串，格式如 redis://[password]@host:port 或 rediss://[password]@host:port/0，
+# 详情请参考 https://redis-py.readthedocs.io/en/stable/connections.html#redis.client.Redis.from_url
+REDIS_CONNECTION_STRING = env.str(
+    'PROXYPOOL_REDIS_CONNECTION_STRING', env.str('REDIS_CONNECTION_STRING', None))
+
+# Redis哈希表键名
+REDIS_KEY = env.str('PROXYPOOL_REDIS_KEY', env.str(
+    'REDIS_KEY', 'proxies:universal'))
+
+# 定义代理的评分标准
+PROXY_SCORE_MAX = env.int('PROXY_SCORE_MAX', 100)
+PROXY_SCORE_MIN = env.int('PROXY_SCORE_MIN', 0)
+PROXY_SCORE_INIT = env.int('PROXY_SCORE_INIT', 10)
+
 
 # 定义环境常量
 DEV_MODE, TEST_MODE, PROD_MODE = 'dev', 'test', 'prod'  # 三种环境模式：开发、测试、生产
