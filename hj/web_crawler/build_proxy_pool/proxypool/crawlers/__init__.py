@@ -3,15 +3,20 @@
 # @Author : 洪建
 # @File : __init__.py.py
 # @Time : 2026/1/15 16:13
+import importlib.util
 import inspect
 import pkgutil
+
+from web_crawler.build_proxy_pool.proxypool.crawlers.base import BaseCrawler
 
 # 动态加载继承自BaseCrawler的所有爬虫类
 classes = []
 # 遍历当前包路径下的所有子模块
 for loader, name, is_pkg in pkgutil.walk_packages(__path__):
     # 加载模块
-    module = loader.find_module(name).load_module(name)
+    spec = loader.find_spec(name)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
     # 遍历模块中的所有对象
     for name, value in inspect.getmembers(module):
         # 将模块成员添加到全局命名空间

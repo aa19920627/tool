@@ -4,8 +4,6 @@
 # @File : redis_client.py
 # @Time : 2026/1/9 14:50
 from random import choice
-
-import logger
 import redis
 from loguru import logger
 from web_crawler.build_proxy_pool.proxypool.exceptions.empty import PoolEmptyException
@@ -43,6 +41,7 @@ class RedisClient(object):
                 host=host, port=port, password=password, db=db, decode_responses=True, **kwargs
             )
 
+
     def add(self, proxy, score=PROXY_SCORE_INIT, redis_key=REDIS_KEY):
         """
         添加代理并设置初始分数
@@ -53,7 +52,7 @@ class RedisClient(object):
         """
 
         # 验证代理是否有效（IP和端口格式是否正确）
-        if not is_valid_proxy(f'{proxy.host}:{proxy.host}'):
+        if not is_valid_proxy(f'{proxy.host}:{proxy.port}'):
             # 如果代理无效，则记录日志并返回
             logger.info(f'代理无效：{proxy}')
             return
@@ -142,7 +141,7 @@ class RedisClient(object):
         # Redis 3.x+版本语法：key, {member: score}
         return self.db.zadd(redis_key, {proxy.string(): proxy_score_max})
 
-    def conut(self, redis_key=REDIS_KEY):
+    def count(self, redis_key=REDIS_KEY):
         """
         获取代理总数
         :param redis_key: Redis键名，默认为REDIS_KEY
@@ -178,4 +177,5 @@ class RedisClient(object):
 if __name__ == '__main__':
     conn = RedisClient()
     result = conn.random()
+    print(conn.count())
     print(result)

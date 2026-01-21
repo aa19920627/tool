@@ -67,6 +67,9 @@ APP_TEST = IS_TEST = APP_ENV == TEST_MODE  # 是否测试环境
 CYCLE_TESTER = env.int('CYCLE_TESTER', 20)
 # 定期从代理发布网站获取代理源，每CYCLE_GETTER秒获取一次
 CYCLE_GETTER = env.int('CYCLE_GETTER', 20)
+# 获取代理的超时时间
+GET_TIMEOUT = env.int('GET_TIMEOUT', 10)
+
 
 # tester调度器的相关配置
 TEST_URL = env.str('TEST_URL', 'http://www.baidu.com')

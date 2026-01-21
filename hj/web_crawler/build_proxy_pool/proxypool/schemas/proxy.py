@@ -31,4 +31,5 @@ class Proxy(object):
         :return: <host>:<port> 格式的字符串
         """
         # 调用 __str__ 方法返回字符串表示
+        return self.__str__()
 
