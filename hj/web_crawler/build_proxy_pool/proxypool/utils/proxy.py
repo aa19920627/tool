@@ -117,5 +117,5 @@ def extract_auth_proxy(data):
     return host, port
 
 if __name__ == '__main__':
-    proxy = '117.68.216.212:32425'
-    print(extract_auth_proxy(proxy))
+    proxy = '5.133.214.122:22799'
+    print(convert_proxy_or_proxies(proxy))

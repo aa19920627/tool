@@ -83,14 +83,14 @@ class BaseCrawler(object):
             except Exception as e:
                 logger.error(f"获取代理失败 {ep['url']}: {e}")
 
-        # 遍历第二组API端点获取代理数据
-        for ep in JSON_ENDPOINTS2:
-            try:
-                for proxy in self.fetch_jsonendpoint2(ep):
-                    print(f'获取代理成功，代理为{proxy}')
-                    yield proxy
-            except Exception as e:
-                logger.error(f"获取代理失败 {ep['url']}: {e}")
+        # # 遍历第二组API端点获取代理数据
+        # for ep in JSON_ENDPOINTS2:
+        #     try:
+        #         for proxy in self.fetch_jsonendpoint2(ep):
+        #             print(f'获取代理成功，代理为{proxy}')
+        #             yield proxy
+        #     except Exception as e:
+        #         logger.error(f"获取代理失败 {ep['url']}: {e}")
 
 
 if __name__ == '__main__':

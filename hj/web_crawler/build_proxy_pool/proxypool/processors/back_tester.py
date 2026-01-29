@@ -64,7 +64,7 @@ class Proxy_Tester(object):
                 logger.debug(f'正在测试代理 {proxy.string()}')  # 记录调试日志
 
                 # 如果配置了匿名性测试，确保代理具有隐藏真实IP的效果
-                if TEST_ANONYMOUS == "1":
+                if TEST_ANONYMOUS:
                     # 测试匿名性：首先获取真实IP
                     url = 'https://httpbin.org/ip'
                     async with session.get(url, timeout=TEST_TIMEOUT) as response:
@@ -134,7 +134,7 @@ class Proxy_Tester(object):
                 # 降低代理在所有独立测试器中的分数
                 [self.redis.decrease(proxy, tester.key, tester.proxy_score_min) for tester in self.testers]
                 logger.debug(f'代理 {proxy.string()} 无效，降低分数')
-                # raise
+                raise
 
     @logger.catch
     def run(self):
@@ -165,12 +165,12 @@ class Proxy_Tester(object):
 
 
 async def run_tester():
-    host = '13.59.113.45'
-    port = '123'
+    host = '13.232.2.142'
+    port = '8082'
     tester = Proxy_Tester()  # 创建实例
     await tester.proxy_test(Proxy(host=host, port=port))
 
 if __name__ == '__main__':
     tester = Proxy_Tester()
-    tester.run()
-    # tester.loop.run_until_complete(run_tester())
+    # tester.run()
+    tester.loop.run_until_complete(run_tester())

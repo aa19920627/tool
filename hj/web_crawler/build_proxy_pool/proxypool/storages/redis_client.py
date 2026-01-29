@@ -31,6 +31,11 @@ class RedisClient(object):
             password: redis密码
             connection_string: redis连接字符串（如果提供，则优先使用）
         """
+        # === 设置超时 + 启动验证）===
+        kwargs.setdefault('socket_timeout', 5)  # 操作5秒超时
+        kwargs.setdefault('socket_connect_timeout', 5)  # 连接5秒超时
+        kwargs.setdefault('retry_on_timeout', False)  # 超时直接失败，不重试
+        # ==============================================
 
         # 如果设置了连接字符串，则使用连接字符串
         if connection_string:
@@ -41,6 +46,16 @@ class RedisClient(object):
                 host=host, port=port, password=password, db=db, decode_responses=True, **kwargs
             )
 
+        # === （启动时验证连接）===
+        try:
+
+            self.db.ping()
+            # logger.info(f"Redis连接成功")
+        except Exception as e:
+            logger.error(f"Redis初始化失败，程序终止: {e}")
+            import sys
+            sys.exit(1)
+        # ======================================
 
     def add(self, proxy, score=PROXY_SCORE_INIT, redis_key=REDIS_KEY):
         """
@@ -159,7 +174,7 @@ class RedisClient(object):
         :return: 代理对象列表
         """
         # 获取指定分数范围内所有代理，并转换为Proxy对象列表
-        return convert_proxy_or_proxies(self.db.zrangebyscore(redis_key, proxy_score_min, proxy_score_max))
+        return convert_proxy_or_proxies(self.db.zrangebyscore(redis_key, 0, proxy_score_max))
 
     def batch(self, cursor, count, redis_key=REDIS_KEY):
         """
@@ -171,11 +186,18 @@ class RedisClient(object):
         """
         # 使用zscan命令批量扫描有序集合中的代理
         cursor, proxies = self.db.zscan(redis_key, cursor, count=count)
+        # print(proxies)
         # 转换返回的代理字符串为Proxy对象列表
-        return cursor, convert_proxy_or_proxies(i[0] for i in proxies)
+        return cursor, convert_proxy_or_proxies([i[0] for i in proxies])
 
 if __name__ == '__main__':
     conn = RedisClient()
     result = conn.random()
     print(conn.count())
     print(result)
+    # print(conn.batch(0,20))
+
+    # # 清除代理池
+    # proxies = conn.all()
+    # for proxy in proxies:
+    #     conn.decrease(proxy)
