@@ -114,7 +114,7 @@ class Proxy_Tester(object):
                                                allow_redirects=False) as response:
                             resp_text = await response.text()
                             # 调用测试器的parse方法验证响应
-                            is_valid = await tester.parse(resp_text, test_url, proxy.string())
+                            is_valid = await tester.parse(resp_text)
                             if is_valid:
                                 if tester.test_dont_set_max_score:
                                     logger.info(f'key[{key}] 代理 {proxy.string()} 有效，保留当前分数')
