@@ -90,5 +90,8 @@ ITEM_PIPELINES = {
    "scrapytutorial.pipelines.MongoDBPipeline": 400,
 }
 
-MONGODB_CONNECTION_STRING = "localhost"
+MONGODB_HOST = "127.0.0.1"
+MONGODB_PORT = 27017
+MONGODB_USER = "mongodb"
+MONGODB_PASSWORD = "dgbc@Passw0rd"
 MONGODB_DATABASE = "scrapytutorial"

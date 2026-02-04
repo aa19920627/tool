@@ -6,6 +6,7 @@ import pymongo
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
+from loguru import logger
 
 
 class TextPipeline:
@@ -22,22 +23,36 @@ class TextPipeline:
 
 
 class MongoDBPipeline(object):
-    def __init__(self, connection_string, database):
-        self.connection_string = connection_string
+    def __init__(self, host, port, username, password, database):
+        self.host = host
+        self.port = port
+        self.username = username
+        self.password = password
         self.database = database
 
+    #
     @classmethod
     def from_crawler(cls, crawler):
         return cls(
-            connection_string=crawler.settings.get("MONGODB_CONNECTION_STRING"),
-            database = crawler.settings.get("MONGODB_DATABASE")
+            host=crawler.settings.get("MONGODB_HOST"),
+            port=crawler.settings.get("MONGODB_PORT"),
+            username=crawler.settings.get("MONGODB_USER"),
+            password=crawler.settings.get("MONGODB_PASSWORD"),
+            database=crawler.settings.get("MONGODB_DATABASE")
         )
 
     def open_spider(self, spider):
-        self.client = pymongo.MongoClient(self.connection_string)
+        self.client = pymongo.MongoClient(
+            host=self.host,
+            port=self.port,
+            username=self.username,
+            password=self.password
+        )
+        # db_list = self.client.list_database_names()
+
         self.db = self.client[self.database]
 
-    def process_item(self,item, spider):
+    def process_item(self, item, spider):
         name = item.__class__.__name__
         self.db[name].insert_one(dict(item))
         return item
