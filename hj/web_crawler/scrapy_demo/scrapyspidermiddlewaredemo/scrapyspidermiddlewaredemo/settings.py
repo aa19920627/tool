@@ -1,4 +1,4 @@
-# Scrapy settings for scrapytutorial project
+# Scrapy settings for scrapyspidermiddlewaredemo project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -6,18 +6,17 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-# from scrapy.settings.default_settings import ITEM_PIPELINES
 
-BOT_NAME = "scrapytutorial"
+BOT_NAME = "scrapyspidermiddlewaredemo"
 
-SPIDER_MODULES = ["scrapytutorial.spiders"]
-NEWSPIDER_MODULE = "scrapytutorial.spiders"
+SPIDER_MODULES = ["scrapyspidermiddlewaredemo.spiders"]
+NEWSPIDER_MODULE = "scrapyspidermiddlewaredemo.spiders"
 
 ADDONS = {}
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "scrapytutorial (+http://www.yourdomain.com)"
+#USER_AGENT = "scrapyspidermiddlewaredemo (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -41,14 +40,14 @@ DOWNLOAD_DELAY = 1
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
-#    "scrapytutorial.middlewares.ScrapytutorialSpiderMiddleware": 543,
-#}
+SPIDER_MIDDLEWARES = {
+   "scrapyspidermiddlewaredemo.middlewares.CustomizeMiddleware": 543,
+}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    "scrapytutorial.middlewares.ScrapytutorialDownloaderMiddleware": 543,
+#    "scrapyspidermiddlewaredemo.middlewares.ScrapyspidermiddlewaredemoDownloaderMiddleware": 543,
 #}
 
 # Enable or disable extensions
@@ -59,7 +58,9 @@ DOWNLOAD_DELAY = 1
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-
+#ITEM_PIPELINES = {
+#    "scrapyspidermiddlewaredemo.pipelines.ScrapyspidermiddlewaredemoPipeline": 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -84,4 +85,3 @@ DOWNLOAD_DELAY = 1
 
 # Set settings whose default value is deprecated to a future-proof value
 FEED_EXPORT_ENCODING = "utf-8"
-
