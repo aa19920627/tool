@@ -88,7 +88,6 @@ class ImagePipeline(ImagesPipeline):
         type = request.meta['type']
         name = request.meta['name']
         file_name = f'{movie}/{type}/{name}.jpg'
-        logger.info("===================== ImagePipeline ===============================")
         return file_name
 
     def item_completed(self, results, item, info):
@@ -101,7 +100,6 @@ class ImagePipeline(ImagesPipeline):
         for director in item['directors']:
             director_name = director['name']
             director_image = director['image']
-            logger.info(director_image)
             yield Request(director_image, meta={
                 'name': director_name,
                 'type': 'director',
@@ -111,7 +109,6 @@ class ImagePipeline(ImagesPipeline):
         for actor in item['actors']:
             actor_name = actor['name']
             actor_image = actor['image']
-            logger.info(actor_image)
             yield Request(actor_image, meta={
                 'name': actor_name,
                 'type': 'actor',

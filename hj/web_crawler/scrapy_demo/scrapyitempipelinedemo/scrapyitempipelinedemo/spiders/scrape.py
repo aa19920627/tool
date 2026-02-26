@@ -8,7 +8,7 @@ from ..items import MovieItem
 
 class ScrapySpider(scrapy.Spider):
     name = "images"
-    allowed_domains = ["ssr1.scrape.center"]
+    allowed_domains = ["ssr1.scrape.center", "p0.meituan.net", "p1.meituan.net"]
     start_urls = "https://ssr1.scrape.center"
     max_page = 1
 

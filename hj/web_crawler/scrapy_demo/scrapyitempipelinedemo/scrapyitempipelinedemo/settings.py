@@ -14,7 +14,6 @@ NEWSPIDER_MODULE = "scrapyitempipelinedemo.spiders"
 
 ADDONS = {}
 
-
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "scrapyitempipelinedemo (+http://www.yourdomain.com)"
 
@@ -98,4 +97,7 @@ MONGODB_COLLECTION = "movies"
 ELASTICSEARCH_CONNECTION_STRING = "http://127.0.0.1:9200"
 ELASTICSEARCH_INDEX = "movies"
 
-IMAGE_STORE = "./images"
+IMAGES_STORE = "./images"
+
+LOG_LEVEL = 'DEBUG'
+LOG_FILE = 'scrapy_image_debug.txt'
